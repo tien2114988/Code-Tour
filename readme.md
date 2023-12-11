@@ -1,8 +1,11 @@
 # Yêu cầu
-1) Responsive
-2) Hiển thị trên các loại trình duyệt
-3) Bảo mật cơ bản
-4) SEO cơ bản
+1) Đọc kĩ file readme
+2) Đọc kĩ database
+3) Tạo branch mới làm
+4) Responsive
+5) Hiển thị trên các loại trình duyệt
+6) Bảo mật cơ bản
+7) SEO cơ bản
 
 
 # Cấu trúc file (mn tuân theo khi viết code để dễ dàng quản lý)
@@ -43,3 +46,13 @@
 
 
 ### Lưu ý : làm theo cấu trúc file để dễ quản lý code, đọc code để biết thêm chi tiết :))))) 
+
+# Trang admin (xem chi tiết các bảng trong database để thực hiện các tính năng như tạo form,...)
+- Tab quản lý thành viên (hiển thị danh sách thành viên, xem thông tin 1 thành viên, xóa thành viên, có thể lọc) --> Bảng User, Address
+- Tab quản lý bình luận đánh giá của thành viên (hiển thị danh sách bình luận , có thể lọc theo tour,.. , có thể gửi phản hồi) --> Bảng Comment
+- Tab quản lý các liên hệ của khách hàng (xem danh sách liên hệ của khách hàng, có thể lọc) --> Bảng Contact
+- Tab quản lý thông tin trên trang public như thay đổi địa chỉ, sdt, hotline, email, thông tin về chuyển khoản --> Bảng General
+- Tab quản lý (xem danh sách, thêm, sửa, xóa) danh mục --> Bảng Category
+- Tab quản lý (xem danh sách, thêm, sửa, xóa, có thể lọc) tour  (đọc kĩ database để thiết kế) --> Bảng Tour, Tour_Schedule, Tour_Image
+- Tab quản lý đặt tour (xem danh sách, xem chi tiết, thực hiện các thao tác xác nhận đặt tour) --> Bảng Booking
+- Tab quản lý (xem danh sách, thêm, sửa, xóa, có thể lọc) tin tức (đọc kĩ database để thiết kế) --> Bảng News, Related_Tour
