@@ -1,0 +1,459 @@
+.slide {
+    background-image: url("https://tourbonphuong.com/upload/hinhanh/1366x720x1/995307499705868.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.slide__information {
+    color: #f0efef;
+}
+
+.slide__information>h5 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.slide__information>h6 {
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.slide__information>p {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.primary-button {
+    text-align: center;
+    background: transparent;
+    color: #f0efef;
+    font-size: 1.5rem;
+    height: 42px;
+    padding: 0 16px;
+    border: solid 2px white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.primary-button:link,
+.primary-button:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgb(217, 125, 27);
+}
+
+.primary-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none;
+}
+
+.lineUp {
+    animation: 4s anim-lineUp ease-out infinite;
+}
+
+.lineLeft {
+    animation: 4s anim-lineLeft ease-out infinite;
+}
+
+.lineRight {
+    animation: 4s anim-lineRight ease-out infinite;
+}
+
+.lineDown {
+    animation: 4s anim-lineDown ease-out infinite;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* ------------ Featured ----------- */
+.feature__container {}
+
+.feature__container h3 {
+    font-weight: 700;
+    word-spacing: 2px;
+    font-size: 40px;
+}
+
+.container__item {
+    position: relative;
+    height: 40vh;
+    width: 31vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.container__item img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 40vh;
+    width: 31vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    object-fit: cover;
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(70%);
+}
+
+.container__item:hover img {
+    filter: brightness(100%);
+    transform: scale(1.05);
+}
+
+.feature {
+    color: white;
+    position: absolute;
+}
+
+.feature h6 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.feature h7 {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.feature p span {
+    font-weight: 600;
+}
+
+/* ---------- Tour Main ------------- */
+.tour__main {}
+
+.tour__main h3 {
+    font-weight: 700;
+    word-spacing: 2px;
+    font-size: 40px;
+}
+
+.tour__main-container {}
+
+.tour__main-left {
+    position: relative;
+}
+
+.tour__main-left img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 80vh;
+    width: 50vw;
+    cursor: pointer;
+    transition: transform 0.5s;
+    object-fit: cover;
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(70%);
+    z-index: -1;
+}
+
+.tour__main-right {}
+
+.tour__main-sub {
+    position: relative;
+}
+
+.tour__main-sub img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 40vh;
+    width: 25vw;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(70%);
+    z-index: -1;
+}
+
+.tour__infor {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    color: white;
+    z-index: 1;
+}
+
+.tour__infor_mini {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    color: white;
+    z-index: 1;
+}
+
+.tour__infor h6 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.tour__infor h7 {
+    font-size: 2.0rem;
+    font-weight: 200;
+}
+
+.tour__infor p,
+.tour__infor span {
+    font-size: 1.8rem;
+}
+
+.tour__infor_mini h6 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.tour__infor_mini h7 {
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.tour__infor_mini p,
+.tour__infor_mini span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tour__infor_mini .primary-button {
+    width: 120px;
+    font-size: 0.9rem;
+}
+
+.tour__main img:hover {
+    filter: brightness(90%);
+    transform: scale(1.05);
+}
+
+/* --------------------------- */
+/* ----------LIST-TOUR-------- */
+.tour__list {}
+
+.tour__list h3 {
+    font-weight: 700;
+    word-spacing: 2px;
+    font-size: 40px;
+}
+
+.tour__list-container {}
+
+.tour__item {
+    position: relative;
+    cursor: pointer;
+}
+
+.tour__item img {
+    border-radius: 20px;
+    transform-origin: 50% 65%;
+    transition: transform .5s, filter 1.5s ease-in-out;
+    filter: grayscale(100%);
+    z-index: -1;
+}
+
+.tour__item:hover img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.tour__item-infor {
+    margin-top: 5px;
+    position: absolute;
+    color: white;
+    left: 2%;
+    z-index: 1;
+}
+
+.tour__item-infor h7 {
+    font-weight: 700;
+}
+
+.tour__item-infor span {
+    font-weight: 400;
+}
+
+/* -----------BLOG------- */
+.tour__blog {}
+
+.tour__blog h3 {
+    font-weight: 700;
+    word-spacing: 2px;
+    font-size: 40px;
+}
+
+.blog__container {}
+
+.blog__left {
+    position: relative;
+    width: 50%;
+    cursor: pointer;
+}
+
+.blog__left img {
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(70%);
+    z-index: -1;
+    border-radius: 30px;
+    width: 100%;
+    position: relative;
+    margin-left: 30px;
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.blog__left:hover img{
+	margin-left: 0;
+}
+
+.blog__infor {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    top: 50%;
+
+    text-overflow: ellipsis;
+}
+
+.blog__infor p {
+    width: 100%;
+    font-weight: 300;
+}
+
+.blog__infor h6 {
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+/*  Key frame  */
+@keyframes anim-lineUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes anim-lineLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(80%);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes anim-lineRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-80%);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes anim-lineDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-80%);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

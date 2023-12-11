@@ -5,7 +5,7 @@ class Database
     private static $host = 'localhost';
     private static $user = 'root';
     private static $pass = '';
-    private static $dbname = 'code_tour';
+    private static $dbname = 'travel';
 
     public static $link;
     public static $error;

@@ -18,7 +18,7 @@ class Router
             $this->role = $arr[0];
             unset($arr[0]);
         }
-
+        
         // controller
         if (isset($arr[1])) {
             if (file_exists("./controllers/$this->role/$arr[1]Controller.php")) {
@@ -37,11 +37,12 @@ class Router
             }
             unset($arr[2]);
         }
-
-        // parameters
+        
+        
+        // parameters   
         $this->params = $arr ? array_values($arr) : [];
         call_user_func_array([$this->controller, $this->action], $this->params);
-
+        
     }
 
     public function processUrl()
