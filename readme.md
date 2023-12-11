@@ -1,11 +1,10 @@
-# Yêu cầu
+# Yêu cầu (Tạo branch mới làm)
 1) Đọc kĩ file readme
 2) Đọc kĩ database
-3) Tạo branch mới làm
-4) Responsive
-5) Hiển thị trên các loại trình duyệt
-6) Bảo mật cơ bản
-7) SEO cơ bản
+3) Responsive
+4) Hiển thị trên các loại trình duyệt
+5) Bảo mật cơ bản
+6) SEO cơ bản
 
 
 # Cấu trúc file (mn tuân theo khi viết code để dễ dàng quản lý)
