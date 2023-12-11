@@ -7,67 +7,69 @@
     <title>CodeTour</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="../../../public/css/user.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid px-5">
-    <a class="navbar-brand" href="#">CodeTour</a>
+    <a class="me-5 p-0 navbar-brand" href="#">
+      <img src="../../../public/img/logo.avif" alt="Bootstrap" width="40" height="40">
+      CODETOUR
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>">Trang chủ</a>
+          <a class="nav-link active" aria-current="page" href="">Trang chủ</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>home/introduction">Giới thiệu</a>
+          <a class="nav-link active" aria-current="page" href="">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown mx-1">
           <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tour
           </a>
           <ul class="dropdown-menu">
-            <?php foreach ($data['category'] as $tour) {?>
-            <li><a class="dropdown-item" href="<?php echo $path; ?>tour/tour_list/"><?php echo $tour['category_name']; ?></a></li>
-            <?php }?>
+            <li class=""><a class="dropdown-item" href="">Miền Tây</a></li>
+            <li class=""><a class="dropdown-item" href="">Miền Tây</a></li>
           </ul>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>tour/price_list">Bảng giá</a>
+          <a class="nav-link active" aria-current="page" href="">Bảng giá</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>tour/booking">Đặt tour</a>
+          <a class="nav-link active" aria-current="page" href="">Đặt tour</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>home/news">Tin tức</a>
+          <a class="nav-link active" aria-current="page" href="">Tin tức</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>home/photography">Hình ảnh</a>
+          <a class="nav-link active" aria-current="page" href="">Hình ảnh</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path; ?>home/contact">Liên hệ</a>
+          <a class="nav-link active" aria-current="page" href="">Liên hệ</a>
         </li>
         <li class="nav-item dropdown mx-1">
           <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tài khoản
           </a>
-          <div class="header__user-dropdown dropdown-menu dropdown-menu-end">
+          <div class="header__user-dropdown dropdown-menu">
                                     <p class="text-center mb-0">THÔNG TIN TÀI KHOẢN</p>
                                     <hr class="hr hr-blurry w-75 my-2 mx-auto" />
                                     <p class="ms-4 m-1 px-2"> Xin chào</p>
                                     <ul class="header__user-list">
-                                        <li><a href="<?php echo $path; ?>account">Thông tin tài khoản</a></li>
-                                        <li><a href="<?php echo $path; ?>account">Quản lý đơn hàng</a></li>
-                                        <li><a href="<?php echo $path; ?>account">Danh sách địa chỉ</a></li>
-                                        <li><a href="?controller=user&&action=logout">Đăng xuất</a>
+                                        <li><a href="">Thông tin tài khoản</a></li>
+                                        <li><a href="">Danh sách địa chỉ</a></li>
+                                        <li><a href="">Quản lý đặt tour</a></li>
+                                        <li><a href="">Đăng xuất</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- Not login -->
-                                <div class="header__login-dropdown dropdown-menu dropdown-menu-end">
+                                <div class="header__login-dropdown dropdown-menu">
                                     <p class="text-center mb-0">THÔNG TIN TÀI KHOẢN</p>
                                     <hr class="hr hr-blurry w-75 my-2 mx-auto" />
                                     <div class="d-grid gap-2 col-10 mx-auto">
@@ -84,4 +86,166 @@
       </form>
     </div>
   </div>
-</nav>
+    </nav>
+
+
+
+
+<div class="container-fluid">
+        <div class="w-75 mx-auto mb-5">
+            <h2 class="my-4 text-uppercase">Tour Miền Tây 1 ngày</h2>
+            <p class="fs-5 mb-1">Giá người lớn : <span class="text-danger">100.000đ</span></p>
+            <p class="">Giá trẻ em (dưới 10 tuổi) : <span class="text-danger">50.000đ</span></p>
+            <div class="d-flex mb-4">
+              <div class="p-0 my-auto text-center tour-detail__info">
+                <i class="bi bi-calendar text-info fs-5"></i> 2 Ngày 1 Đêm
+              </div>
+              <div class="p-0 my-auto text-center mx-5">
+                <i class="bi bi-geo-alt text-info fs-5"></i> Ô tô
+              </div>
+              <div class="p-0 my-auto text-center">
+                <i class="bi bi-house text-info fs-5"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+              </div>
+            </div>
+            <div class="col-5">
+              <button type="button" class="btn btn-primary">Đặt tour</button>
+            </div>
+
+            <nav class="pt-4">
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+                  role="tab" aria-controls="nav-home" aria-selected="true">Lịch trình</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+                  role="tab" aria-controls="nav-profile" aria-selected="false">Tổng quan</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+                  role="tab" aria-controls="nav-contact" aria-selected="false">Hình ảnh</button>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <h4 class="steelblue pt-3">Lịch trình tour</h4>
+                <div class="detail-item">
+                  <div class="d-flex">
+                    <div class="col w-50">
+                      <img class='m-3 w-95' src="https://tourbonphuong.com/upload/product/xnmt-01-4378.png" alt="">
+                    </div>
+                    <div class="col w-50 m-3">
+                      <div class="">
+                        <h4>Ngày 1 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
+                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
+                      </div>
+                      <div class="">
+                        <h4>Ngày 2 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
+                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste
+                          deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
+                      </div>
+                      <div class="">
+                        <h4>Ngày 3 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
+                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste
+                          deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                
+                
+                
+              </div>
+
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <h4 class="steelblue pt-3">Tổng quan về tour</h4>
+                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, sapiente, soluta doloribus reprehenderit culpa autem ut ipsum dolor possimus provident eos necessitatibus beatae earum consequuntur explicabo rem dolore atque laudantium.</p>
+                <div class="">
+                  <p class="fw-semibold m-0">Tour bao gồm : </p>
+                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse, dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?</p>
+                </div>
+                <div class="">
+                  <p class="fw-semibold m-0">Tour không bao gồm : </p>
+                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
+                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
+                  </p>
+                </div>
+                <div class="">
+                  <p class="fw-semibold m-0">Điều kiện trẻ em : </p>
+                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
+                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
+                  </p>
+                </div>
+                <div class="">
+                  <p class="fw-semibold m-0">Quy định hủy tour : </p>
+                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
+                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
+                  </p>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <h4 class="steelblue pt-3">Hình ảnh về tour</h4>
+              </div>
+
+
+
+
+            </div>
+
+
+            <div class="bg-gainsboro rounded-1">
+              <h4 class="steelblue">Bình luận/Đánh giá về tour</h4>
+              <form>
+                <div class="d-flex form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputName">Tên</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Nhập tên">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Nhập email">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputPhone">Số Điện Thoại</label>
+                    <input type="tel" class="form-control" id="inputPhone" placeholder="Nhập số điện thoại">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputComment">Bình Luận</label>
+                  <textarea class="form-control" id="inputComment" rows="3" placeholder="Nhập bình luận"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi</button>
+              </form>
+            </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid row w-75 mx-auto">
+  <div class="col-md-6">
+    <h5 class="fs-6">THÔNG TIN LIÊN HỆ</h5>
+    <ul class="list-group list-unstyled">
+      <li class="fw-semibold">Địa chỉ : </li>
+      <li class="fw-semibold">Điện thoại : </li>
+      <li class="fw-semibold">Hotline : </li>
+      <li class="fw-semibold">Email : </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h5 class="fs-6">THÔNG TIN CHUYỂN KHOẢN</h5>
+    <ul class="list-group list-unstyled">
+      <li class="fw-semibold">Chủ tài khoản : </li>
+      <li class="fw-semibold">STK : </li>
+      <li class="fw-semibold">Ngân hàng : </li>
+    </ul>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
