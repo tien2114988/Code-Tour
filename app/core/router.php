@@ -21,13 +21,13 @@ class Router
 
         // controller
         if (isset($arr[1])) {
-            if (file_exists("./controllers/$this->role/$arr[1]Controller.php")) {
+            if (file_exists("./app/controllers/$this->role/$arr[1]Controller.php")) {
                 $this->controller = $arr[1];
                 unset($arr[1]);
             }
         }
         $this->controller = $this->controller . "Controller";
-        require "./controllers/$this->role/$this->controller" . '.php';
+        require "./app/controllers/$this->role/$this->controller" . '.php';
         $this->controller = new $this->controller();
 
         // method
