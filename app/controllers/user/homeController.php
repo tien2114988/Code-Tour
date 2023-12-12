@@ -36,4 +36,8 @@ class HomeController extends Controller
     {
         $this->viewUser('layout', ['page' => 'home/photography', 'category' => $this->category]);
     }
+    public function account()
+    {
+        $this->viewUser('layout', ['page' => 'home/account', 'category' => $this->category]);
+    }
 }
