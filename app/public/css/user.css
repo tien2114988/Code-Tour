@@ -3,8 +3,8 @@
     color: steelblue !important;
 }
 
-.bg-gainsboro{
-    background-color: gainsboro;
+.bg-whitesmoke{
+    background-color: whitesmoke;
 }
 
 /* header */
@@ -92,4 +92,9 @@
 
 .w-35 {
     width: 35%;
+}
+
+.tour-detail .timeline{
+    font-size: 13px;
+    opacity: 0.6;
 }
