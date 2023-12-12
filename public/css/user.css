@@ -98,3 +98,42 @@
     font-size: 13px;
     opacity: 0.6;
 }
+
+
+
+/*price-list*/
+.price-list .tour-link:hover a{
+    color: steelblue !important;
+}
+
+/* news-list */
+.news-list .card-text{
+    max-height: 3em;
+        /* Adjust the value to set the maximum height (equivalent to 2 lines) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Number of lines to display */
+    -webkit-box-orient: vertical;
+}
+
+.news-list .card-img-top {
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+    height: 200px;
+    /* Set a fixed height for the images */
+}
+
+/* new-detail */
+.news-detail .price{
+    font-size: 14px;
+}
+
+.news-detail .tour-cart:hover .tour-name{
+    color: steelblue;
+}
+
+.news-detail .related-tour {
+    height: auto;
+}

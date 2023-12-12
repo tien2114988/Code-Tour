@@ -27,11 +27,6 @@ class HomeController extends Controller
         $this->viewUser('layout', ['page' => 'home/contact', 'category' => $this->category]);
     }
 
-    public function news()
-    {
-        $this->viewUser('layout', ['page' => 'home/news', 'category' => $this->category]);
-    }
-
     public function photography()
     {
         $this->viewUser('layout', ['page' => 'home/photography', 'category' => $this->category]);

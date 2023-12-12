@@ -7,14 +7,14 @@
     <title>CodeTour</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../public/css/user.css">
+    <link rel="stylesheet" href="../../public/css/user.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid px-5">
     <a class="me-5 p-0 navbar-brand" href="#">
-      <img src="../../../public/img/logo.avif" alt="Bootstrap" width="40" height="40">
+      <img src="/public/img/logo.avif" alt="Bootstrap" width="40" height="40">
       CODETOUR
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="">Trang chủ</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>home/homepage">Trang chủ</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="">Giới thiệu</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>home/introduction">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown mx-1">
-          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" href="<?php echo $path ?>tour/tour-list" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tour
           </a>
           <ul class="dropdown-menu">
@@ -87,50 +87,3 @@
     </div>
   </div>
     </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="bg-whitesmoke py-3">
-  <div class="container-fluid row w-75 mx-auto">
-    <div class="col-md-6">
-      <h5 class="fs-6">THÔNG TIN LIÊN HỆ</h5>
-      <ul class="list-group list-unstyled">
-        <li class="fw-semibold">Địa chỉ : </li>
-        <li class="fw-semibold">Điện thoại : </li>
-        <li class="fw-semibold">Hotline : </li>
-        <li class="fw-semibold">Email : </li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h5 class="fs-6">THÔNG TIN CHUYỂN KHOẢN</h5>
-      <ul class="list-group list-unstyled">
-        <li class="fw-semibold">Chủ tài khoản : </li>
-        <li class="fw-semibold">STK : </li>
-        <li class="fw-semibold">Ngân hàng : </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-
-</body>
-
-</html>
