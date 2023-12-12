@@ -4,22 +4,22 @@ class Controller
 
     protected function viewUser($view, $data = [])
     {
-        require './views/user/' . $view . '.php';
+        require './app/views/user/' . $view . '.php';
     }
 
     protected function viewAdmin($view, $data = [])
     {
-        require './views/admin/' . $view . '.php';
+        require './app/views/admin/' . $view . '.php';
     }
 
     protected function viewAuthen($view, $data = [])
     {
-        require './views/authen/' . $view . '.php';
+        require './app/views/authen/' . $view . '.php';
     }
 
     protected function model($model)
     {
-        require_once './models/' . $model . '.php';
+        require_once './app/models/' . $model . '.php';
         return new $model;
     }
 }
