@@ -4,9 +4,9 @@ class Router
     // role/controller/method/param[0]/param[1]/...
     // example : user/home/introduction
     // default : user/home/index
-    protected $role = 'user';
-    protected $controller = 'home';
-    protected $action = 'index';
+    protected $role = 'authen';
+    protected $controller = 'authen';
+    protected $action = 'login';
     protected $params = [];
 
     public function __construct()
@@ -21,13 +21,14 @@ class Router
         
         // controller
         if (isset($arr[1])) {
-            if (file_exists("./controllers/$this->role/$arr[1]Controller.php")) {
+            if (file_exists("./controllers/$this->role/$arr[1]Controller.php")) {   
                 $this->controller = $arr[1];
                 unset($arr[1]);
             }
         }
         $this->controller = $this->controller . "Controller";
         require "./controllers/$this->role/$this->controller" . '.php';
+        // require "./controllers/$this->role/$this->controller" . '.php';
         $this->controller = new $this->controller();
 
         // method

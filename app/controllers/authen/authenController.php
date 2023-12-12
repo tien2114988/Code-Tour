@@ -9,7 +9,7 @@ class AuthenController extends Controller
     }
     public function login()
     {
-        $this->viewAuthen('login', []);
+        $this->viewAuthen('login', ['page' => 'login']);
     }
 
     public function signup()
