@@ -12,18 +12,35 @@ class NewsController extends Controller
         $this->categoryModel = $this->model("categoryModel");
         $this->category = $this->categoryModel->getAll();
     }
-    public function news_list($page = 1)
+    public function news_list($page = 1, $search = '')
     {
         $per_page = 6;
 
-        $maxRecord = $this->newsModel->getRow();
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $maxRecord = $this->newsModel->getRow($search);
+        } else if ($search != '') {
+            $maxRecord = $this->newsModel->getRow($search);
+        } else {
+            $maxRecord = $this->newsModel->getRow();
+        }
+
         $maxPage = ceil($maxRecord / $per_page);
 
         $start = ($page - 1) * $per_page;
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $news = $this->newsModel->getAll($start, $per_page, $search);
+            $heading = 'Kết quả tìm kiếm tin tức cho từ khóa "' . $search . '"';
+        } else if ($search != '') {
+            $news = $this->newsModel->getAll($start, $per_page, $search);
+            $heading = 'Kết quả tìm kiếm tin tức cho từ khóa "' . $search . '"';
+        } else {
+            $news = $this->newsModel->getAll($start, $per_page);
+            $heading = 'Tin tức';
+        }
 
-        $news = $this->newsModel->getAll($start, $per_page);
-
-        $this->viewUser('layout', ['page' => 'news/news-list', 'category' => $this->category, 'news' => $news, 'maxPage' => $maxPage, 'currentPage' => $page]);
+        $this->viewUser('layout', ['page' => 'news/news-list', 'category' => $this->category, 'news' => $news, 'maxPage' => $maxPage, 'currentPage' => $page, 'search' => $search, 'heading' => $heading]);
     }
 
     public function news_detail($id)

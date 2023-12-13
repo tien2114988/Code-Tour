@@ -106,19 +106,23 @@
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputName">Họ tên</label>
                     <input type="text" class="form-control" name="fullname" id="name" placeholder="Nhập tên">
+                    <p class="text-danger">* <?php echo $data['fullname_err'] ?></p>
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputEmail">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
+                    <p class="text-danger">* <?php echo $data['email_err'] ?></p>
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputPhone">Số Điện Thoại</label>
                     <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" name="phone_number">
+                    <p class="text-danger">* <?php echo $data['phone_number_err'] ?></p>
                   </div>
                 </div>
                 <div class="form-group p-2">
                   <label class="fw-semibold" for="inputComment">Bình Luận</label>
                   <textarea class="form-control" id="comment" rows="3" placeholder="Nhập bình luận" name="content"></textarea>
+                  <p class="text-danger">* <?php echo $data['content_err'] ?></p>
                 </div>
                 <button type="submit" class="btn btn-primary m-2">Gửi</button>
               </form>

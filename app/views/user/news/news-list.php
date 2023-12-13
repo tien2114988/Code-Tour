@@ -5,7 +5,7 @@
 
 <div class="container-fluid news-list">
         <div class="w-75 mx-auto mb-5">
-            <h2 class="text-center my-4 text-uppercase">Tin tức</h2>
+            <h2 class="text-center my-4 text-uppercase"><?php echo $data['heading'] ?></h2>
 
 
 
@@ -13,7 +13,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
                 <?php if ($data['news']) {
     foreach ($data['news'] as $news) {?>
-                <a class="item-list__card-link px-3 link-underline link-underline-opacity-0"  href="<?php echo $path ?>/news/news_detail/<?php echo $news['news_id'] ?>">
+                <a class="item-list__card-link px-3 link-underline link-underline-opacity-0"  href="<?php echo $path ?>user/news/news_detail/<?php echo $news['news_id'] ?>">
                     <div class="item-list__card card col p-0 h-100">
                         <img src="<?php echo $news['news_img'] ?>" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -30,17 +30,17 @@
                   <ul class="pagination">
 
                     <li class="page-item <?php if ($data['currentPage'] == 1) {echo "disabled";}?>">
-                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] - 1 ?>" class="page-link">Previous</a>
+                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] - 1 ?>/<?php echo $data['search'] ?>" class="page-link">Previous</a>
                     </li>
 
                     <?php for ($i = 1; $i <= $data['maxPage']; $i++) {?>
                     <li <?php if ($data['currentPage'] == 1) {echo "disabled";}?> class="page-item <?php if ($i == $data['currentPage']) {echo 'active';}?>" aria-current="page">
-                      <a <?php if ($i != $data['currentPage']) {?> href="<?php echo $path ?>user/news/news_list/<?php echo $i ?>" <?php }?> class="page-link"><?php echo $i ?></a>
+                      <a <?php if ($i != $data['currentPage']) {?> href="<?php echo $path ?>user/news/news_list/<?php echo $i ?>/<?php echo $data['search'] ?>" <?php }?> class="page-link"><?php echo $i ?></a>
                     </li>
                     <?php }?>
 
                     <li class="page-item <?php if ($data['currentPage'] == $data['maxPage']) {echo "disabled";}?>">
-                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] + 1 ?>" class="page-link">Next</a>
+                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] + 1 ?>/<?php echo $data['search'] ?>" class="page-link">Next</a>
                     </li>
                   </ul>
                 </nav>

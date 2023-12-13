@@ -7,14 +7,14 @@
     <title>CodeTour</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo $path ?>css/user.css">
+    <link rel="stylesheet" href="<?php echo $path ?>/css/user.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid px-5">
     <a class="me-5 p-0 navbar-brand" href="#">
-      <img src="<?php echo $path ?>img/logo.avif" alt="Bootstrap" width="40" height="40">
+      <img src="<?php echo $path ?>/img/logo.avif" alt="Bootstrap" width="40" height="40">
       CODETOUR
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,8 +78,13 @@
         </li>
 
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" role="search" action="<?php if ($data['page'] == 'tour/tour-list') {
+    echo $path . "user/tour/tour_list/-1";
+} else {
+    echo $path . "user/news/news_list";
+}
+?>">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

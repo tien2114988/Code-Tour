@@ -47,18 +47,18 @@
                   <ul class="pagination">
 
                     <li class="page-item <?php if ($data['currentPage'] == 1) {echo "disabled";}?>">
-                      <a href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $data['currentPage'] - 1 ?>" class="page-link">Previous</a>
+                      <a href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $data['currentPage'] - 1 ?>/<?php echo $data['search'] ?>" class="page-link">Previous</a>
                     </li>
 
 
                     <?php for ($i = 1; $i <= $data['maxPage']; $i++) {?>
                     <li class="page-item <?php if ($i == $data['currentPage']) {echo 'active';}?>" aria-current="page">
-                      <a <?php if ($i != $data['currentPage']) {?> href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $i ?>" <?php }?> class="page-link"><?php echo $i ?></a>
+                      <a <?php if ($i != $data['currentPage']) {?> href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $i ?>/<?php echo $data['search'] ?>" <?php }?> class="page-link"><?php echo $i ?></a>
                     </li>
                     <?php }?>
 
                     <li class="page-item <?php if ($data['currentPage'] == $data['maxPage']) {echo "disabled";}?>">
-                      <a href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $data['currentPage'] + 1 ?>" class="page-link">Next</a>
+                      <a href="<?php echo $path ?>user/tour/tour_list/<?php echo $data['category_id'] ?>/<?php echo $data['currentPage'] + 1 ?>/<?php echo $data['search'] ?>" class="page-link">Next</a>
                     </li>
                   </ul>
                 </nav>

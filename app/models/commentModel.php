@@ -8,9 +8,9 @@ class CommentModel
         $this->database = new Database();
     }
 
-    public function getAll()
+    public function getAll($tour_id)
     {
-        $query = "SELECT * FROM comment ORDER BY time DESC";
+        $query = "SELECT * FROM comment WHERE tour_id=$tour_id ORDER BY time DESC";
         $data = $this->database->select($query);
         if ($data) {
             return $data->fetch_all(MYSQLI_ASSOC);
