@@ -23,26 +23,20 @@
       </tr>
     </thead>
     <tbody class="">
+      <?php foreach ($data['tour'] as $tour) {?>
       <tr class="">
-        <th scope="row">1</th>
-        <td class="tour-link text-start"><a class="link-dark link-underline-opacity-0" href="">Tour mien tay 2 ngay 1 dem</a></td>
-        <td>1 ngày</td>
-        <td>Ô tô</td>
-        <td>***</td>
-        <td>500.000 đ</td>
-        <td>100.000 đ</td>
-        <td><button type="button" class="btn btn-primary py-1 px-2 rounded-4">Đặt Tour</button></td>
+        <th scope="row"><?php echo $tour['tour_id'] ?></th>
+        <td class="tour-link text-start"><a class="link-dark link-underline-opacity-0" href="<?php echo $path ?>/tour/tour_detail/<?php echo $tour['tour_id'] ?>"><?php echo $tour['tour_name'] ?></a></td>
+        <td><?php echo $tour['tour_days'] ?></td>
+        <td><?php echo $tour['vehicle'] ?></td>
+        <td><?php for ($i = 0; $i < $tour['hotel_rate']; $i++) {?>
+                  <i class="bi bi-star"></i>
+                <?php }?></td>
+        <td><?php echo $tour['adult_price'] ?> đ</td>
+        <td><?php echo $tour['child_price'] ?> đ</td>
+        <td><a href="<?php echo $path ?>/tour/booking/<?php echo $tour['tour_id'] ?>" type="button" class="btn btn-primary py-1 px-2 rounded-4">Đặt Tour</a></td>
       </tr>
-      <tr class="">
-        <th scope="row">1</th>
-        <td class="tour-link text-start"><a class="link-dark link-underline-opacity-0" href="">Tour mien tay 2 ngay 1 ccccccc vvvvvv dem</a></td>
-        <td class="">1 ngày 1 đêm</td>
-        <td>Máy bay</td>
-        <td>***</td>
-        <td>500.000 đ</td>
-        <td>100.000 đ</td>
-        <td><button type="button" class="btn btn-primary py-1 px-2 rounded-4">Đặt Tour</button></td>
-      </tr>
+      <?php }?>
       <!-- Add more rows as needed -->
     </tbody>
   </table>

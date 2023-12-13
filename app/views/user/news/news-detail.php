@@ -8,25 +8,21 @@
 <div class="container-fluid news-detail">
         <div class="w-75 mx-auto mb-5 d-flex">
             <div class="col-md-8">
-              <h2 class="my-4 text-uppercase">Đi choiư đâu ở Tiền Giang</h2>
-              <img class="w-95" src="https://tourbonphuong.com/upload/product/chi-tiet-2-9327_1000x1000.jpg" alt="">
-              <p class="pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit error officia sed voluptatum nemo corporis ea ab dolorem hic. Nam illo odio voluptatum, fugiat quasi exercitationem possimus dolorem perspiciatis vitae.</p>
+              <h2 class="my-4 text-uppercase"><?php echo $data['news']['title'] ?></h2>
+              <img class="w-95" src="<?php echo $data['news']['news_img'] ?>" alt="">
+              <p class="pt-2"><?php echo $data['news']['opening_paragraph'] ?></p>
               <ol class="">
                 <li class="fw-semibold">
                   <p class="mb-1">Vài nét về du lịch Tiền Giang </p>
-                  <p class="fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero est aliquid odio quis soluta ab aspernatur minima vitae repellendus architecto illum iste recusandae sed animi aliquam expedita, voluptas ex?</p>
+                  <p class="fw-normal"><?php echo $data['news']['introduction'] ?></p>
                 </li>
                 <li class="fw-semibold">
                   <p class="mb-1">Đi chơi đâu ở Tiền Giang </p>
-                  <p class="fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero est aliquid odio quis
-                    soluta ab aspernatur minima vitae repellendus architecto illum iste recusandae sed animi aliquam expedita, voluptas
-                    ex?</p>
+                  <p class="fw-normal"><?php echo $data['news']['body'] ?></p>
                 </li>
                 <li class="fw-semibold">
                   <p class="mb-1">Những điều lưu ý khi đi du lịch Tiền Giang </p>
-                  <p class="fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero est aliquid odio quis
-                    soluta ab aspernatur minima vitae repellendus architecto illum iste recusandae sed animi aliquam expedita, voluptas
-                    ex?</p>
+                  <p class="fw-normal"><?php echo $data['news']['conclusion'] ?></p>
                 </li>
               </ol>
             </div>
@@ -58,7 +54,7 @@
               </div>
               <div></div>
             </div>
-            
+
       </div>
 </div>
 

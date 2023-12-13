@@ -10,32 +10,27 @@
 
 
 
-
-
-
-
-
-
 <div class="container-fluid tour-detail">
         <div class="w-75 mx-auto mb-5">
-            <h2 class="my-4 text-uppercase">Tour Miền Tây 1 ngày</h2>
-            <p class="fs-5 mb-1">Giá người lớn : <span class="text-danger">100.000đ</span></p>
-            <p class="">Giá trẻ em (dưới 10 tuổi) : <span class="text-danger">50.000đ</span></p>
+            <h2 class="my-4 text-uppercase"><?php echo $data['tour']['tour_name'] ?></h2>
+            <p class="fs-5 mb-1">Giá người lớn : <span class="text-danger"><?php echo $data['tour']['adult_price'] ?> đ</span></p>
+            <p class="">Giá trẻ em (dưới 10 tuổi) : <span class="text-danger"><?php echo $data['tour']['child_price'] ?> đ</span></p>
             <div class="d-flex mb-4">
               <div class="p-0 my-auto text-center tour-detail__info">
-                <i class="bi bi-calendar text-info fs-5"></i> 2 Ngày 1 Đêm
+                <i class="bi bi-calendar text-info fs-5"></i> <?php echo $data['tour']['tour_days'] ?>
               </div>
               <div class="p-0 my-auto text-center mx-5">
-                <i class="bi bi-geo-alt text-info fs-5"></i> Ô tô
+                <i class="bi bi-geo-alt text-info fs-5"></i> <?php echo $data['tour']['vehicle'] ?>
               </div>
               <div class="p-0 my-auto text-center">
                 <i class="bi bi-house text-info fs-5"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
+                <?php for ($i = 0; $i < $data['tour']['hotel_rate']; $i++) {?>
+                  <i class="bi bi-star"></i>
+                <?php }?>
               </div>
             </div>
             <div class="col-5">
-              <button type="button" class="btn btn-primary">Đặt tour</button>
+              <a type="button" class="btn btn-primary" href="<?php echo $path ?>tour/booking/<?php echo $data['tour']['tour_id'] ?>">Đặt tour</a>
             </div>
 
             <nav class="pt-4">
@@ -54,23 +49,15 @@
                 <div class="detail-item">
                   <div class="d-flex">
                     <div class="col w-50">
-                      <img class='m-3 w-95' src="https://tourbonphuong.com/upload/product/xnmt-01-4378.png" alt="">
+                      <img class='m-3 w-95' src="<?php echo $data['tour']['map'] ?>" alt="">
                     </div>
                     <div class="col w-50 m-3">
+                      <?php foreach ($data['schedule'] as $schedule) {?>
                       <div class="">
-                        <h4>Ngày 1 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
-                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
+                        <h4>Ngày <?php echo $schedule['day'] ?> : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> <?php echo $schedule['location'] ?></span> </h4>
+                        <p class="ps-5"><?php echo $schedule['description'] ?></p>
                       </div>
-                      <div class="">
-                        <h4>Ngày 2 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
-                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste
-                          deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
-                      </div>
-                      <div class="">
-                        <h4>Ngày 3 : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> Mỹ Tho - Bến Tre</span> </h4>
-                        <p class="ps-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste veritatis ut quos maiores at. Earum, nam iste
-                          deserunt fugiat reprehenderit natus at! Repudiandae minus, neque consequuntur sit accusamus fuga?</p>
-                      </div>
+                      <?php }?>
                     </div>
                   </div>
 
@@ -82,28 +69,23 @@
 
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                 <h4 class="steelblue pt-3">Tổng quan về tour</h4>
-                <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, sapiente, soluta doloribus reprehenderit culpa autem ut ipsum dolor possimus provident eos necessitatibus beatae earum consequuntur explicabo rem dolore atque laudantium.</p>
+                <p class="px-5"><?php echo $data['tour']['description'] ?></p>
                 <div class="">
                   <p class="fw-semibold m-0">Tour bao gồm : </p>
-                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse, dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?</p>
+                  <p class="ps-3"><?php echo $data['tour']['tour_include'] ?></p>
                 </div>
                 <div class="">
                   <p class="fw-semibold m-0">Tour không bao gồm : </p>
-                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
-                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
-                  </p>
+                  <p class="ps-3"><?php echo $data['tour']['tour_exclude'] ?></p>
                 </div>
                 <div class="">
                   <p class="fw-semibold m-0">Điều kiện trẻ em : </p>
-                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
-                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
+                  <p class="ps-3"><?php echo $data['tour']['tour_condition'] ?>
                   </p>
                 </div>
                 <div class="">
                   <p class="fw-semibold m-0">Quy định hủy tour : </p>
-                  <p class="ps-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi dolorum tenetur cupiditate consectetur sit in esse,
-                    dignissimos laudantium, quo magnam officiis quod sint temporibus deserunt laborum ut! Praesentium, accusamus suscipit?
-                  </p>
+                  <p class="ps-3"><?php echo $data['tour']['tour_cancel'] ?></p>
                 </div>
               </div>
 

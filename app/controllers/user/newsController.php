@@ -14,11 +14,13 @@ class NewsController extends Controller
     }
     public function news_list()
     {
-        $this->viewUser('layout', ['page' => 'news/news-list', 'category' => $this->category]);
+        $news = $this->newsModel->getAll();
+        $this->viewUser('layout', ['page' => 'news/news-list', 'category' => $this->category, 'news' => $news]);
     }
 
-    public function news_detail()
+    public function news_detail($id)
     {
-        $this->viewUser('layout', ['page' => 'news/news-detail', 'category' => $this->category]);
+        $news = $this->newsModel->getById($id);
+        $this->viewUser('layout', ['page' => 'news/news-detail', 'category' => $this->category, 'news' => $news]);
     }
 }

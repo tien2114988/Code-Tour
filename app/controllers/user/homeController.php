@@ -12,14 +12,12 @@ class HomeController extends Controller
     }
     public function index()
     {
-
         $this->viewUser('layout', ['page' => 'home/homepage', 'category' => $this->category]);
     }
 
     public function introduction()
     {
         $this->viewUser('layout', ['page' => 'home/introduction', 'category' => $this->category]);
-
     }
 
     public function contact()

@@ -11,20 +11,20 @@
               <div class="mb-3">
                 <div class="form-group p-2">
                   <label class="fw-semibold" for="inputComment">Tên tour</label>
-                  <input type="text" class="form-control" id="inputName" value="Tour miền tây 1 ngày" disabled>
+                  <input type="text" class="form-control" id="inputName" value="<?php echo $data['tour']['tour_name'] ?>" disabled>
                 </div>
                 <div class="d-flex form-row">
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputName">Số ngày đi tour</label>
-                    <input type="text" class="form-control" id="inputName" value="1 ngày" disabled>
+                    <input type="text" class="form-control" id="inputName" value="<?php echo $data['tour']['tour_days'] ?>" disabled>
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputEmail">Phương tiện</label>
-                    <input type="email" class="form-control" id="inputEmail" value="ô tô" disabled>
+                    <input type="email" class="form-control" id="inputEmail" value="<?php echo $data['tour']['vehicle'] ?>" disabled>
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputPhone">Khách sạn</label>
-                    <input type="tel" class="form-control" id="inputPhone" value="" disabled>
+                    <input type="tel" class="form-control" id="inputPhone" value="<?php echo $data['tour']['hotel_rate'] ?> sao" disabled>
                   </div>
                 </div>
                 <div class="d-flex form-row p-2">
@@ -41,11 +41,11 @@
                 <div class="d-flex form-row p-2">
                   <div class="col-md-6 p-2 form-group d-flex">
                     <label class="fw-semibold my-auto me-2" for="inputName">Giá người lớn : </label>
-                    <p class="text-primary fw-semibold my-auto" id="inputEmail">120.000 đ</p>
+                    <p class="text-primary fw-semibold my-auto" id="inputEmail"><?php echo $data['tour']['adult_price'] ?> đ</p>
                   </div>
                   <div class="col-md-6 p-2 form-group d-flex">
                     <label class="fw-semibold my-auto me-2" for="inputEmail">Giá trẻ em : </label>
-                    <p class="text-primary fw-semibold my-auto" id="inputEmail">120.000 đ</p>
+                    <p class="text-primary fw-semibold my-auto" id="inputEmail"><?php echo $data['tour']['child_price'] ?> đ</p>
                   </div>
                 </div>
                 <div class="d-flex form-row p-2">
