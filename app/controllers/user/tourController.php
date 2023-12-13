@@ -5,11 +5,14 @@ class TourController extends Controller
     private $tourModel;
     private $categoryModel;
     private $category;
+    private $commentModel;
+    private $scheduleModel;
 
     public function __construct()
     {
         $this->tourModel = $this->model("tourModel");
         $this->scheduleModel = $this->model("scheduleModel");
+        $this->commentModel = $this->model("commentModel");
         $this->categoryModel = $this->model("categoryModel");
         $this->category = $this->categoryModel->getAll();
     }
@@ -28,8 +31,23 @@ class TourController extends Controller
     public function tour_detail($id)
     {
         $tour = $this->tourModel->getById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $phone_number = $_POST['phone_number'];
+            $content = $_POST['content'];
+
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $time = date('Y-m-d H:i:s');
+
+            $this->commentModel->insert(['tour_id' => $tour['tour_id'], 'fullname' => $fullname, 'email' => $email, 'phone_number' => $phone_number, 'content' => $content, 'time' => $time]);
+        }
+
+        $comment = $this->commentModel->getAll();
+
         $schedule = $this->scheduleModel->getAll($id);
-        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule]);
+        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule, 'comment' => $comment]);
     }
 
     public function price_list()

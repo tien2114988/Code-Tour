@@ -23,13 +23,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>home/homepage">Trang chủ</a>
+          <a class="nav-link active" aria-current="page" href="/">Trang chủ</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>home/introduction">Giới thiệu</a>
+          <a class="nav-link active" aria-current="page" href="/user/home/introduction">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown mx-1">
-          <a class="nav-link active dropdown-toggle" href="<?php echo $path ?>tour/tour_list" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" href="/user/tour/tour_list" aria-expanded="false">
           Tour
           </a>
           <ul class="dropdown-menu hover">
