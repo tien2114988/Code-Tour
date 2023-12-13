@@ -551,9 +551,11 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
     transition: 0.3s;
 }
+
 .form-group i:hover {
-    cursor:pointer
+    cursor: pointer
 }
+
 /* ----------ACOUNT---------- */
 .account__information {}
 
@@ -638,6 +640,14 @@
     display: flex;
     display: flex;
     width: 90%;
+}
+
+/* ----------------CONTACT ----------  */
+.title-head {
+    font-weight: 400;
+}
+.main-contact p{
+    font-weight: 100;
 }
 
 /*  Key frame  */

@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-center">
-        <div class="w-100">
+        <div class="d-flex flex-row w-100">
             <div class="slide d-flex align-items-center justify-content-start w-100">
                 <div class="slide__information p-4 mx-5 d-flex gap-2 flex-column px-lg-5">
                     <h5 class="text-uppercase lineUp">TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM</h5>

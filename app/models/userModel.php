@@ -19,11 +19,12 @@ class UserModel
 
     public function getById($id){
         $query = "SELECT * FROM user WHERE user_id = $id;";
-        $data = $this->database->select($query);        
+        $data = $this->database->select($query);      
+         
         return $data->fetch_all(MYSQLI_ASSOC)[0];
     }
-    public function update($fullname, $phone,$user_id){
-        $query = "UPDATE user SET fullname = '$fullname', phone_number = '$phone' WHERE user_id = $user_id";
+    public function update($fullname, $phone,$user_id, $address){
+        $query = "UPDATE user SET fullname = '$fullname', phone_number = '$phone', address ='$address' WHERE user_id = $user_id";
         $data = $this->database->update($query);        
         return $data;
     }

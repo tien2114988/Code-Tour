@@ -46,7 +46,7 @@
                         <div id="user-info__select-location">
 
                             <div class="form-floating">
-                                <input name="detail" type="text" value="<?= $data['address']['address'] ?? null?>"
+                                <input name="detail" type="text" value="<?= $data['user']['address'] ?? null?>"
                                 class="form-control mb-2 w-100" id="address" placeholder="Số nhà, đường,...">
                                 <label for="address">Địa chỉ hiện tại</label>
                             </div>

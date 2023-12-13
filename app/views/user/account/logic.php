@@ -1,6 +1,13 @@
 <?php
 // var_dump($data['booking']);
-$response = "
+$response = "   <div class='modal-body'>
+            <div class='modal-header'>
+                                <h5 class='modal-title' id='exampleModalLabel'>
+                                    Booking Tour
+                                </h5>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+            </div>";
+$response .= "
                     <div class='bill-title d-flex justify-content-between align-items-center m-2'>
                                     <div class='user__infor-detail w-100 d-flex gap-2 flex-column'>
                                         <div class='title'>
@@ -21,15 +28,16 @@ $response = "
                                         </div>
                                     </div>
                     </div>
-                                <div class='bill__description'>
-                                    <div class='bill__description-date d-flex justify-content-around my-3'>
+                                <div class='bill__description p-2'>
+                                    <div class='bill__description-date d-flex flex-column justify-content-around my-3 gap-2'>
                                         <div class='title'>
                                             <p>Ngày Booking: <span>{$data['booking']['created_datetime']}</span> </p>
                                         </div>
                                         <div class='title'>
                                             <p>Ngày khởi hành: <span>{$data['booking']['depart_date']}</span> </p>
                                         </div>
-                                        <div class='title'>";
+                                        <div class='title'>
+                                        <p>Trạng thái: ";
 
 switch ($data['booking']['status']) {
     case 0:
@@ -54,7 +62,7 @@ switch ($data['booking']['status']) {
 }
 
 $response .= "                            <span class='{$statusClass}'>{$statusText}</span>
-                                            
+</p> 
                                         </div>
                                     </div>
                                     <div class='bill__description-title'>
@@ -79,12 +87,11 @@ $response .= "                            <span class='{$statusClass}'>{$statusT
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div class='bill__description d-flex justify-content-between p-3'>
-                                            <div class='bill__total d-flex align-items-center gap-3'>
+                                        <div class='bill__description d-flex align-items-center justify-content-between p-2'>
                                                 <h4>Cần thanh toán</h4>
-                                                <h6 class='text-danger'>{$data['booking']['total_money']}</h6>
-                                            </div>
+                                                <h5 class='text-danger'>{$data['booking']['total_money']} vnđ</h5>
                                         </div>
                                     </div>
-                                </div>";
+                                </div>
+</div>";
 echo $response;
