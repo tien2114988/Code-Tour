@@ -29,7 +29,7 @@
           <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/home/introduction">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown mx-1">
-          <a class="nav-link active dropdown-toggle" href="<?php echo $path ?>tour/tour_list" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" href="/user/tour/tour_list" aria-expanded="false">
           Tour
           </a>
           <ul class="dropdown-menu hover">
