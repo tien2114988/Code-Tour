@@ -18,7 +18,7 @@ class Router
             $this->role = $arr[0];
             unset($arr[0]);
         }
-
+        echo $this->role;
         // controller
         if (isset($arr[1])) {
             if (file_exists("./app/controllers/$this->role/$arr[1]Controller.php")) {
@@ -26,6 +26,7 @@ class Router
                 unset($arr[1]);
             }
         }
+        echo $this->controller;
         $this->controller = $this->controller . "Controller";
         require "./app/controllers/$this->role/$this->controller" . '.php';
         $this->controller = new $this->controller();
@@ -37,7 +38,8 @@ class Router
             }
             unset($arr[2]);
         }
-
+        
+        echo $this->action;
         // parameters
         $this->params = $arr ? array_values($arr) : [];
         call_user_func_array([$this->controller, $this->action], $this->params);

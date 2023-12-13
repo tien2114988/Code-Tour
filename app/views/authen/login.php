@@ -1,8 +1,5 @@
 <?php
 $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) . 'authen/';
-<<<<<<< HEAD
-require_once './app/views/authen/' . $data['page'] . '.php';
-=======
 require_once './views/authen/' . $data['page'] . '.php';
 
 
@@ -88,4 +85,3 @@ require_once './views/authen/' . $data['page'] . '.php';
         container.classList.remove("right-panel-active");
     });
 </script>
->>>>>>> 88163e4fc14dbe9cba7aebed83b8e591114e82b6
