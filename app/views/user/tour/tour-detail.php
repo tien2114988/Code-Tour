@@ -101,52 +101,46 @@
 
             <div class="bg-whitesmoke rounded-1 py-3 px-2 mt-5">
               <h4 class="steelblue">Bình luận/Đánh giá về tour</h4>
-              <form class="mb-5">
+              <form class="mb-5" action="" method="post">
                 <div class="d-flex form-row">
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputName">Họ tên</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Nhập tên">
+                    <input type="text" class="form-control" name="fullname" id="name" placeholder="Nhập tên">
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Nhập email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
                   </div>
                   <div class="form-group col-md-4 p-2">
                     <label class="fw-semibold" for="inputPhone">Số Điện Thoại</label>
-                    <input type="tel" class="form-control" id="inputPhone" placeholder="Nhập số điện thoại">
+                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" name="phone_number">
                   </div>
                 </div>
                 <div class="form-group p-2">
                   <label class="fw-semibold" for="inputComment">Bình Luận</label>
-                  <textarea class="form-control" id="inputComment" rows="3" placeholder="Nhập bình luận"></textarea>
+                  <textarea class="form-control" id="comment" rows="3" placeholder="Nhập bình luận" name="content"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary m-2">Gửi</button>
               </form>
 
-
+              <?php if ($data['comment']) {
+    foreach ($data['comment'] as $comment) {?>
               <div class="pb-3">
-                <p class="fw-semibold m-0">Vu Kim Oanh</p>
-                <p class="timeline m-0">16:29 - 08/12/2023</p>
+                <p class="fw-semibold m-0"><?php echo $comment['fullname'] ?></p>
+                <p class="timeline m-0"><?php echo $comment['time'] ?></p>
                 <div class="bg-white rounded-1 mt-1 border">
-                  <p class="ps-1 m-0">Cho toi hoi gia tour</p>
+                  <p class="ps-1 m-0"><?php echo $comment['content'] ?></p>
+                  <?php if ($comment['response'] != '') {?>
                   <div class="ps-3 pt-1">
                     <p class="fw-semibold m-0">Admin</p>
-                    <p class="m-0 pb-1">Minh da lien he ban roi</p>
+                    <p class="m-0 pb-1"><?php echo $comment['response'] ?></p>
                   </div>
+                  <?php }?>
                 </div>
                 </div>
-
-                <div class="pb-3">
-                  <p class="fw-semibold m-0">Vu Kim Oanh</p>
-                  <p class="timeline m-0">16:29 - 08/12/2023</p>
-                  <div class="bg-white rounded-1 mt-1 border">
-                    <p class="ps-1 m-0">Cho toi hoi gia tour</p>
-                    <div class="ps-3 pt-1">
-                      <p class="fw-semibold m-0">Admin</p>
-                      <p class="m-0 pb-1">Minh da lien he ban roi</p>
-                    </div>
-                  </div>
-                </div>
+                  <?php }} else {?>
+                    <div class="">Chưa có bình luận/đánh giá về tour</div>
+                  <?php }?>
             </div>
     </div>
 </div>
