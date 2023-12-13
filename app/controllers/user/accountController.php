@@ -13,7 +13,7 @@ class accountController extends Controller
 
     private $booking;
     private $bookingModel;
-    
+
     public function __construct()
     {
         $this->categoryModel = $this->model("categoryModel");
@@ -48,11 +48,14 @@ class accountController extends Controller
     }
     public function manage()
     {
-        $this->viewUser('layout', ['page' => 'account/manage', 'category' => $this->category]);
+
         if (isset($_SESSION['user-id'])) {
             $user_id = $_SESSION['user-id'];
         }
-        echo $user_id;
+        // echo $user_id;
+        $this->booking = $this->bookingModel->getAllBookingById($user_id);
+        //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
+        $this->viewUser('layout', ['page' => 'account/manage', 'category' => $this->category, 'booking' => $this->booking]);
     }
     public function update()
     {
@@ -83,7 +86,7 @@ class accountController extends Controller
                 $this->userModel->update($fullname, $phone, $user_id);
                 $this->addressModel->update($detail, $user_id);
             } else {
-                
+
                 $this->userModel->update($fullname, $phone, $user_id);
                 $this->addressModel->insert($detail, $user_id);
             }
@@ -135,8 +138,8 @@ class accountController extends Controller
                 $err = "Mật khẩu mới phải có ít nhất 8 ký tự và chứa cả chữ cái và số";
             } else {
                 $hash_password = password_hash($npassword, PASSWORD_DEFAULT);
-                
-                
+
+
                 $success = $this->userModel->updatePassword($hash_password, $email);
                 if ($success) {
                     echo '<script type="text/javascript">toastr.success("Bạn đã cập nhập mật khẩu thành công")</script>';
@@ -149,5 +152,19 @@ class accountController extends Controller
                 echo '<script type="text/javascript">toastr.error("' . htmlspecialchars($err, ENT_QUOTES, 'UTF-8') . '")</script>';
             }
         }
+    }
+
+    public function logic()
+    {
+        if (isset($_SESSION['user-id'])) {
+            $user_id = $_SESSION['user-id'];
+        }
+        if (isset($_POST['orderid'])) {
+            $booking_id = $_POST['orderid'];
+        }
+        // echo $user_id;
+        $this->booking = $this->bookingModel->getAllBookingByBId($user_id,$booking_id);
+        //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
+        $this->viewUser('layout', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking]);
     }
 }

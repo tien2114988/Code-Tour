@@ -25,6 +25,20 @@ class BookingModel
     //     $data = $this->database->select($query);
     //     return $data->fetch_all(MYSQLI_ASSOC)[0];
     // }
+    public function getAllBookingById($user_id){
+        $sql = "select distinct booking_id, fullname, email, address, phone_number, total_money, 
+        created_datetime, depart_date, status,  tour_name from booking 
+        join tour on booking.tour_id = tour.tour_id where user_id = $user_id;";
+        $result = $this->database->select($sql);        
+        return $result;
+    }
+    public function getAllBookingByBId($user_id,$booking_id){
+        $sql = "select distinct fullname, email, address, phone_number, total_money,adult_count,child_count, 
+        created_datetime, depart_date, status,  tour_name from booking 
+        join tour on booking.tour_id = tour.tour_id where user_id = $user_id and booking_id = $booking_id;";
+        $result = $this->database->select($sql);        
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
 
     public function insert($data)
     {
