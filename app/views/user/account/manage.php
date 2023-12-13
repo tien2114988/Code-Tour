@@ -36,6 +36,7 @@
                         <input type="hidden" id="userid" name="userid">
                         <thead>
                             <tr>
+                                <th scope="col">Tên Tour</th>
                                 <th scope="col">Ngày Booking</th>
                                 <th scope="col">Ngày khởi hành</th>
                                 <th scope="col">Trạng thái</th>
@@ -44,19 +45,44 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($data['booking'])) {
+                                // var_dump($row);
 
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" data-order-id="">
-                                        XEM
-                                    </button>
-                                </td>
-                            </tr>
-
+                            ?>
+                                <tr>
+                                    <td><?= $row['tour_name'] ?></td>
+                                    <td><?= $row['created_datetime'] ?></td>
+                                    <td><?= $row['depart_date'] ?></td>
+                                    <?php
+                                    if ($row['status'] == 0) :
+                                    ?>
+                                        <td class="text-warning">
+                                            Đang xử lý
+                                        </td>
+                                    <?php elseif ($row['status'] == 1) : ?>
+                                        <td class="text-primary">
+                                            Đã xác nhận
+                                        </td>
+                                    <?php elseif ($row['status'] == 2) : ?>
+                                        <td class="text-success">
+                                            Đã hoàn thành
+                                        </td>
+                                    <?php elseif ($row['status'] == 3) : ?>
+                                        <td class="text-danger">
+                                            Đã hủy
+                                        </td>
+                                    <?php endif ?>
+                                    <td><?= $row['total_money'] ?></td>
+                                    <td class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                                        data-order-id="<?= $row['booking_id']?>">
+                                            XEM
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php
+                            } ?>
 
                         </tbody>
                     </table>
@@ -74,7 +100,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="bill-title d-flex justify-content-between align-items-center m-2">
+                                <!-- <div class="bill-title d-flex justify-content-between align-items-center m-2">
                                     <div class="user__infor-detail w-100 d-flex gap-2 flex-column">
                                         <div class="title">
                                             <p>Họ và tên:</p>
@@ -138,7 +164,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -153,13 +179,13 @@
         $('.detail-order').click(function() {
 
             var orderid = $(this).data('order-id');
-            var userid = $('#userid').val();
+            // var userid = $('#userid').val();
             // AJAX request
             $.ajax({
-                url: `?logic`,
+                url: `logic`,
                 type: 'post',
                 data: {
-                    userid: userid,
+                    // userid: userid,
                     orderid: orderid,
                 },
                 success: function(response) {
