@@ -21,13 +21,13 @@ class Router
 
         // controller
         if (isset($arr[1])) {
-            if (file_exists("./app/controllers/$this->role/$arr[1]Controller.php")) {
+            if (file_exists("../app/controllers/$this->role/$arr[1]Controller.php")) {
                 $this->controller = $arr[1];
                 unset($arr[1]);
             }
         }
         $this->controller = $this->controller . "Controller";
-        require "./app/controllers/$this->role/$this->controller" . '.php';
+        require "../app/controllers/$this->role/$this->controller" . '.php';
         $this->controller = new $this->controller();
 
         // method
@@ -46,17 +46,8 @@ class Router
 
     public function processUrl()
     {
-        $url = $this->getUrl();
-        return explode('/', filter_var(trim($url, '/')));
-    }
-
-    public function getUrl()
-    {
-        if (!empty($_SERVER['PATH_INFO'])) {
-            $url = $_SERVER['PATH_INFO'];
-        } else {
-            $url = '/';
+        if (isset($_GET['url'])) {
+            return explode('/', filter_var(trim($_GET['url'], '/')));
         }
-        return $url;
     }
 }
