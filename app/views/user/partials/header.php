@@ -29,20 +29,20 @@
           <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/home/introduction">Giới thiệu</a>
         </li>
         <li class="nav-item dropdown mx-1">
-          <a class="nav-link active dropdown-toggle" href="/user/tour/tour_list" aria-expanded="false">
+          <a class="nav-link active dropdown-toggle" href="<?php echo $path ?>user/tour/tour_list/0" aria-expanded="false">
           Tour
           </a>
           <ul class="dropdown-menu hover">
               <?php foreach ($data['category'] as $category) {?>
-                <li class=""><a class="dropdown-item" href="<?php echo $path ?>tour/tour_list/<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></a></li>
+                <li class=""><a class="dropdown-item" href="<?php echo $path ?>user/tour/tour_list/<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></a></li>
               <?php }?>
           </ul>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>tour/price_list">Bảng giá</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/tour/price_list">Bảng giá</a>
         </li>
         <li class="nav-item mx-1">
-          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>news/news_list">Tin tức</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/news/news_list">Tin tức</a>
         </li>
         <li class="nav-item mx-1">
           <a class="nav-link active" aria-current="page" href="">Hình ảnh</a>

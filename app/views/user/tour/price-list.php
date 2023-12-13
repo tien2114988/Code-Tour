@@ -26,7 +26,7 @@
       <?php foreach ($data['tour'] as $tour) {?>
       <tr class="">
         <th scope="row"><?php echo $tour['tour_id'] ?></th>
-        <td class="tour-link text-start"><a class="link-dark link-underline-opacity-0" href="<?php echo $path ?>/tour/tour_detail/<?php echo $tour['tour_id'] ?>"><?php echo $tour['tour_name'] ?></a></td>
+        <td class="tour-link text-start"><a class="link-dark link-underline-opacity-0" href="<?php echo $path ?>user/tour/tour_detail/<?php echo $tour['tour_id'] ?>"><?php echo $tour['tour_name'] ?></a></td>
         <td><?php echo $tour['tour_days'] ?></td>
         <td><?php echo $tour['vehicle'] ?></td>
         <td><?php for ($i = 0; $i < $tour['hotel_rate']; $i++) {?>
@@ -34,7 +34,7 @@
                 <?php }?></td>
         <td><?php echo $tour['adult_price'] ?> đ</td>
         <td><?php echo $tour['child_price'] ?> đ</td>
-        <td><a href="<?php echo $path ?>/tour/booking/<?php echo $tour['tour_id'] ?>" type="button" class="btn btn-primary py-1 px-2 rounded-4">Đặt Tour</a></td>
+        <td><a href="<?php echo $path ?>user/tour/booking/<?php echo $tour['tour_id'] ?>" type="button" class="btn btn-primary py-1 px-2 rounded-4">Đặt Tour</a></td>
       </tr>
       <?php }?>
       <!-- Add more rows as needed -->

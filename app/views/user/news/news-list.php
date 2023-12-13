@@ -25,8 +25,26 @@
                         </div>
                     </div>
                 </a>
-                <?php }
-} else {?>
+                <?php }?>
+                  <nav class="w-100 p-5 d-flex justify-content-end" aria-label="...">
+                  <ul class="pagination">
+
+                    <li class="page-item <?php if ($data['currentPage'] == 1) {echo "disabled";}?>">
+                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] - 1 ?>" class="page-link">Previous</a>
+                    </li>
+
+                    <?php for ($i = 1; $i <= $data['maxPage']; $i++) {?>
+                    <li <?php if ($data['currentPage'] == 1) {echo "disabled";}?> class="page-item <?php if ($i == $data['currentPage']) {echo 'active';}?>" aria-current="page">
+                      <a <?php if ($i != $data['currentPage']) {?> href="<?php echo $path ?>user/news/news_list/<?php echo $i ?>" <?php }?> class="page-link"><?php echo $i ?></a>
+                    </li>
+                    <?php }?>
+
+                    <li class="page-item <?php if ($data['currentPage'] == $data['maxPage']) {echo "disabled";}?>">
+                      <a href="<?php echo $path ?>user/news/news_list/<?php echo $data['currentPage'] + 1 ?>" class="page-link">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+                <?php } else {?>
                 <div class="pb-5">Không tìm thấy kết quả phù hợp</div>
                 <?php }?>
             </div>

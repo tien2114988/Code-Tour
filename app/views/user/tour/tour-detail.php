@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="col-5">
-              <a type="button" class="btn btn-primary" href="<?php echo $path ?>tour/booking/<?php echo $data['tour']['tour_id'] ?>">Đặt tour</a>
+              <a type="button" class="btn btn-primary" href="<?php echo $path ?>user/tour/booking/<?php echo $data['tour']['tour_id'] ?>">Đặt tour</a>
             </div>
 
             <nav class="pt-4">
