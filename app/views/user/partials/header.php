@@ -27,7 +27,7 @@ if (isset($_SESSION['user-id'])) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid px-5">
       <a class="me-5 p-0 navbar-brand" href="#">
         <img src="<?php echo $path ?>img/logo.avif" alt="Bootstrap" width="40" height="40">
@@ -100,7 +100,7 @@ if (isset($user_id)) {
           </li>
 
       </ul>
-      <form class="d-flex" role="search" action="<?php if ($data['page'] == 'tour/tour-list') {
+      <form class="d-flex" role="search" action="<?php if ($data['page'] != 'news/news-list') {
     echo $path . "user/tour/tour_list/-1";
 } else {
     echo $path . "user/news/news_list";

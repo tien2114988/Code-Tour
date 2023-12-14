@@ -10,6 +10,7 @@ class TourController extends Controller
     private $bookingModel;
     private $generalModel;
     private $general;
+    private $imgModel;
 
     public function __construct()
     {
@@ -21,7 +22,7 @@ class TourController extends Controller
         $this->category = $this->categoryModel->getAll();
         $this->generalModel = $this->model("generalModel");
         $this->general = $this->generalModel->getAll();
-
+        $this->imgModel = $this->model("imgModel");
     }
 
     private function format_price($tour)
@@ -40,11 +41,6 @@ class TourController extends Controller
         return $tour;
     }
 
-    
-
-   
-
-    
     public function tour_list($category_id = 0, $page = 1, $search = '')
     {
         //pagination
@@ -159,7 +155,9 @@ class TourController extends Controller
             $tour = $this->format_price_by_tour($tour);
         }
 
-        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule, 'comment' => $comment, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'content_err' => $content_err, 'general' => $this->general, 'category_name' => $category_name]);
+        $imgs = $this->imgModel->getByTourId($id);
+
+        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule, 'comment' => $comment, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'content_err' => $content_err, 'general' => $this->general, 'category_name' => $category_name, 'imgs' => $imgs]);
     }
 
     public function price_list($page = 1)

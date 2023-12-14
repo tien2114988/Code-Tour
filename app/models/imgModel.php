@@ -14,4 +14,17 @@ class ImgModel
         $data = $this->database->select($query);
         return $data->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getByTourId($tour_id)
+    {
+        $query = "SELECT DISTINCT * FROM tour_image WHERE tour_id=$tour_id";
+        $data = $this->database->select($query);
+        if ($data) {
+            return $data->fetch_all(MYSQLI_ASSOC);
+
+        } else {
+            return $data;
+        }
+
+    }
 }
