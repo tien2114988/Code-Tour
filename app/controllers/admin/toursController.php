@@ -12,16 +12,16 @@ class ToursController extends Controller
 
     public function index()
     {
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/tours', 'tour_data' => $this->tourModel->getAll()]);
+        $this->viewAdmin('layout', ['page' => 'tabs/tour/tours', 'tour_data' => $this->tourModel->getAll_tri()]);
     }
 
     public function themTour(){
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category'=> $this->categoryModel->getAll()]);
+        $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category'=> $this->categoryModel->getAll_tri()]);
     }
 
     public function tourDetail($tour_id)
     {
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/tourDetail', 'tour_id' => $tour_id, "tour_info" => $this->tourModel->getById($tour_id)]);
+        $this->viewAdmin('layout', ['page' => 'tabs/tour/tourDetail', 'tour_id' => $tour_id, "tour_info" => $this->tourModel->getById_tri($tour_id)]);
     }
 
     public function deleteSchedule($tour_id, $schedule_id, $day)
