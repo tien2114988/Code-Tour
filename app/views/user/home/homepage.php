@@ -25,7 +25,7 @@
 
     <div class="a_feature my-4">
         <div class="d-flex justify-content-center feature__container flex-column align-items-center gap-1 w-100">
-            <h3 class="text-uppercase">Tour nổi bật trong tháng</h3>
+            <h3 class="text-uppercase text-center">Tour nổi bật trong tháng</h3>
             <div class="feature__img d-flex flex-row flex-wrap p-4 w-100 justify-content-between">
                 <?php
                 foreach ($data['tour_feature'] as $row) {
@@ -129,7 +129,7 @@
             ?>
                 <div class="tour__item p-2">
                     <div class="tour__item-infor p-2 d-flex flex-column">
-                        <h7 class="text-uppercase"><?= $row['category_name'] ?></h7>
+                        <h7 class="text-uppercase text"><?= $row['category_name'] ?></h7>
                         <p><span><?= $row['count_tour'] ?></span> Tour</p>
                     </div>
                     <a href="<?php echo $path ?>user/tour/tour_list/<?= $row['category_id'] ?>">
@@ -153,7 +153,7 @@
             ?>
                 <div class="blog__left">
                     <div class="blog__infor d-flex flex-column p-4 align-items-center">
-                        <h6 class="text-uppercase"><?= $row['title'] ?></h6>
+                        <h6 class="text-uppercase text"><?= $row['title'] ?></h6>
                         <p class="text"><?= $row['opening_paragraph'] ?></p>
                         <a href="<?= $path ?>user/news/news_detail/<?= $row['news_id'] ?>"> <button class="primary-button">Đọc thêm</button>
                         </a>
