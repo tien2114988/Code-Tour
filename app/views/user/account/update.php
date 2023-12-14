@@ -9,7 +9,7 @@
                     <img class="w-100" src="https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg">
                     <h3>Xin chào</h3>
                 </div>
-                <div class="user__menu mt-3 d-flex flex-column justify-content-center align-items-center">
+                <div class="user__menu mt-3 d-flex flex-column justify-content-center">
                 <li>
                         <i class="bi bi-person"></i>
                         <a href="<?php echo $path ?>user/account">Thông tin tài khoản</a>

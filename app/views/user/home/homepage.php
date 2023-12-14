@@ -27,25 +27,24 @@
         <div class="d-flex justify-content-center feature__container flex-column align-items-center gap-1 w-100">
             <h3 class="text-uppercase">Tour nổi bật trong tháng</h3>
             <div class="feature__img d-flex flex-row flex-wrap p-4 w-100 justify-content-between">
-                <div class="container__item d-flex flex-1 justify-content-center align-items-end">
-                    <img src="https://tourbonphuong.com/upload/hinhanh/835277606428098_750x500.jpg" alt="photo">
-                    <div class="feature d-flex flex-column align-items-center p-3">
-                        <h6 class="text-uppercase text-center">MIỀN TÂY TRONG NGÀY</h6>
-                        <h7 class="text-uppercase">Tạt mươn bắt cá</h7>
-                        <p><span class="text-uppercase">Giá</span> 450.000 VNĐ</p>
-                        <button class="primary-button">ĐẶT NGAY</button>
+                <?php
+                foreach ($data['tour_feature'] as $row) {
+
+
+                ?>
+                    <div class="container__item d-flex flex-1 justify-content-center align-items-end">
+                        <img src="<?= $row['avatar'] ?>" alt="photo">
+                        <div class="feature d-flex flex-column align-items-center p-3">
+                            <h6 class="text-uppercase text-center"><?= $row['tour_name'] ?></h6>
+                            <!-- <h7 class="text-uppercase">Tạt mươn bắt cá</h7> -->
+                            <p><span class="text-uppercase">Giá </span><?= $row['adult_price'] ?> VNĐ</p>
+                            <button class="primary-button">ĐẶT NGAY</button>
+                        </div>
                     </div>
-                </div>
-                <div class="container__item d-flex flex-1 justify-content-center align-items-end">
-                    <img src="https://tourbonphuong.com/upload/hinhanh/835277606428098_750x500.jpg" alt="photo">
-                    <div class="feature d-flex flex-column align-items-center p-3">
-                        <h6 class="text-uppercase text-center">MIỀN TÂY TRONG NGÀY</h6>
-                        <h7 class="text-uppercase">Tạt mươn bắt cá</h7>
-                        <p><span class="text-uppercase">Giá</span> 450.000 VNĐ</p>
-                        <button class="primary-button">ĐẶT NGAY</button>
-                    </div>
-                </div>
-                <div class="container__item d-flex flex-1 justify-content-center align-items-end">
+                <?php
+                }
+                ?>
+                <!-- <div class="container__item d-flex flex-1 justify-content-center align-items-end">
                     <img src="https://tourbonphuong.com/upload/hinhanh/088071186413254_750x500.jpg" alt="photo">
                     <div class="feature d-flex flex-column align-items-center p-3">
                         <h6 class="text-uppercase text-center">MIỀN TÂY TRONG NGÀY</h6>
@@ -53,130 +52,115 @@
                         <p><span class="text-uppercase">Giá</span> 450.000 VNĐ</p>
                         <button class="primary-button">ĐẶT NGAY</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
     <div class="tour__main w-100 p-1">
+
         <h3 class="text-uppercase text-center">tour chính</h3>
         <div class="tour__main-container d-flex w-100">
-            <div class="tour__main-left w-50 flex-1">
-                <div class="tour__infor d-flex flex-column w-50 align-items-center justify-content-center">
-                    <h6 class="text-uppercase text-center">tour 2 ngày 1 đêm</h6>
-                    <h7 class="text-uppercase text-center">mỹ tho - bến tre - cần thơ</h7>
-                    <p><span class="fw-bold">Giá: </span> 1.550.000VNĐ</p>
-                    <button class="primary-button">ĐẶT NGAY</button>
+            <?php
+            for ($i = 0; $i < count($data['tour_five']);) {
+                //var_dump($data['tour_five']);
+                //exit();
+            ?>
+                <div class="tour__main-left w-50 flex-1">
+                    <div class="tour__infor d-flex flex-column w-50 align-items-center justify-content-center">
+                        <h6 class="text-uppercase text-center"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                        <h7 class="text-uppercase text-center"><?= $data['tour_five'][$i]['location'] ?></h7>
+                        <p><span class="fw-bold">Giá: </span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
+                        <button class="primary-button">ĐẶT NGAY</button>
+                    </div>
+                    <img src="<?= $data['tour_five'][$i]['avatar'] ?>" class="w-100" alt="photo">
                 </div>
-                <img src="https://tourbonphuong.com/upload/product/main-2-4685_1000x1000.jpg" class="w-100" alt="photo">
-            </div>
+            <?php
+
+                break;
+            }
+            ?>
+
             <div class="tour__main-right w-50 flex-1 d-flex flex-wrap">
                 <div class="tour__main-row d-flex flex-row h-50">
-                    <div class="tour__main-sub flex-1 ">
-                        <img src="https://tourbonphuong.com/upload/product/main-2-4685_1000x1000.jpg" alt="photo">
-                        <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                            <h6 class="text-uppercase">tour 2 ngày 1 đêm</h6>
-                            <h7 class="text-uppercase">mỹ tho - bến tre - cần thơ</h7>
-                            <p><span class="fw-bold">Giá:</span> 1.550.000VNĐ</p>
-                            <button class="primary-button">ĐẶT NGAY</button>
+                    <?php
+                    for ($i = 1; $i <= 2; $i++) {
+                    ?>
+                        <div class="tour__main-sub flex-1">
+                            <img src="<?= $data['tour_five'][$i]['avatar'] ?>" alt="photo">
+                            <div class="tour__infor_mini d-flex flex-column justify-items-center">
+                                <h6 class="text-uppercase"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                                <h7 class="text-uppercase"><?= $data['tour_five'][$i]['location'] ?></h7>
+                                <p><span class="fw-bold">Giá:</span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
+                                <button class="primary-button">ĐẶT NGAY</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tour__main-sub flex-1">
-                        <img src="https://tourbonphuong.com/upload/product/hachi8-6897_1000x1000.jpg" alt="photo">
-                        <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                            <h6 class="text-uppercase">tour 2 ngày 1 đêm</h6>
-                            <h7 class="text-uppercase">mỹ tho - bến tre - cần thơ</h7>
-                            <p><span class="fw-bold">Giá:</span> 1.550.000VNĐ</p>
-                            <button class="primary-button">ĐẶT NGAY</button>
-                        </div>
-                    </div>
+                    <?php
+                    } ?>
                 </div>
                 <div class="tour__main-row d-flex flex-row h-50">
-                    <div class="tour__main-sub flex-1">
-                        <img src="https://tourbonphuong.com/upload/product/main-7316_1000x1000.jpg" alt="photo">
-                        <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                            <h6 class="text-uppercase">tour 2 ngày 1 đêm</h6>
-                            <h7 class="text-uppercase">mỹ tho - bến tre - cần thơ</h7>
-                            <p><span class="fw-bold">Giá:</span> 1.550.000VNĐ</p>
-                            <button class="primary-button">ĐẶT NGAY</button>
+                    <?php
+                    for ($i = 3; $i <= 4; $i++) {
+                    ?>
+                        <div class="tour__main-sub flex-1">
+                            <img src="<?= $data['tour_five'][$i]['avatar'] ?>" alt="photo">
+                            <div class="tour__infor_mini d-flex flex-column justify-items-center">
+                                <h6 class="text-uppercase"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                                <h7 class="text-uppercase"><?= $data['tour_five'][$i]['location'] ?></h7>
+                                <p><span class="fw-bold">Giá:</span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
+                                <button class="primary-button">ĐẶT NGAY</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tour__main-sub flex-1">
-                        <img src="https://tourbonphuong.com/upload/product/main-2-4685_1000x1000.jpg" alt="photo">
-                        <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                            <h6 class="text-uppercase">tour 2 ngày 1 đêm</h6>
-                            <h7 class="text-uppercase">mỹ tho - bến tre - cần thơ</h7>
-                            <p><span class="fw-bold">Giá:</span> 1.550.000VNĐ</p>
-                            <button class="primary-button">ĐẶT NGAY</button>
-                        </div>
-                    </div>
+                    <?php
+                    } ?>
                 </div>
             </div>
+
         </div>
+
     </div>
 
     <div class="tour__list p-5 w-100">
         <h3 class="text-uppercase text-center"> danh sách tour</h3>
         <div class="tour__list-container d-flex justify-content-between">
-            <div class="tour__item p-2">
-                <div class="tour__item-infor p-2 d-flex flex-column">
-                    <h7 class="text-uppercase">miền tây trong ngày</h7>
-                    <p><span>2</span> Tour</p>
+            <?php
+            foreach ($data['sub_cate'] as $row) {
+
+
+            ?>
+                <div class="tour__item p-2">
+                    <div class="tour__item-infor p-2 d-flex flex-column">
+                        <h7 class="text-uppercase"><?= $row['category_name'] ?></h7>
+                        <p><span><?= $row['count_tour'] ?></span> Tour</p>
+                    </div>
+                    <img class="w-100" src="<?= $row['category_img'] ?>">
                 </div>
-                <img class="w-100" src="https://tourbonphuong.com/upload/product/305x300x1/z4957220225110-6ceaca3f2879f35207ff6738d62a84c9-2314_305x300.jpg">
-            </div>
-            <div class="tour__item p-2">
-                <div class="tour__item-infor p-2 d-flex flex-column">
-                    <h7 class="text-uppercase">miền tây trong ngày</h7>
-                    <p><span>2</span> Tour</p>
-                </div>
-                <img class="w-100" src="https://tourbonphuong.com/upload/product/305x300x1/z4957220225110-6ceaca3f2879f35207ff6738d62a84c9-2314_305x300.jpg">
-            </div>
-            <div class="tour__item p-2">
-                <div class="tour__item-infor p-2 d-flex flex-column">
-                    <h7 class="text-uppercase">miền tây trong ngày</h7>
-                    <p><span>2</span> Tour</p>
-                </div>
-                <img class="w-100" src="https://tourbonphuong.com/upload/product/305x300x1/z4957220225110-6ceaca3f2879f35207ff6738d62a84c9-2314_305x300.jpg">
-            </div>
-            <div class="tour__item p-2">
-                <div class="tour__item-infor p-2 d-flex flex-column">
-                    <h7 class="text-uppercase">miền tây trong ngày</h7>
-                    <p><span>2</span> Tour</p>
-                </div>
-                <img class="w-100" src="https://tourbonphuong.com/upload/product/305x300x1/z4957220225110-6ceaca3f2879f35207ff6738d62a84c9-2314_305x300.jpg">
-            </div>
-            <div class="tour__item p-2">
-                <div class="tour__item-infor p-2 d-flex flex-column">
-                    <h7 class="text-uppercase">miền tây trong ngày</h7>
-                    <p><span>2</span> Tour</p>
-                </div>
-                <img class="w-100" src="https://tourbonphuong.com/upload/product/305x300x1/z4957220225110-6ceaca3f2879f35207ff6738d62a84c9-2314_305x300.jpg">
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
 
     <div class="tour__blog m-5">
         <h3 class="text-uppercase text-center">Tin tức</h3>
-        <div class="blog__container d-flex p-5 justify-content-around gap-2">
-            <div class="blog__left flex-1">
-                <div class="blog__infor d-flex flex-column p-4 align-items-center">
-                    <h6 class="text-uppercase">Cẩm nang du lịch</h6>
-                    <p>Những ai đã một lần trải nghiệm mùa nước nổi ở miền Tây thì hẳn sẽ không thể nào quên đi cảnh sắc thiên nhiên và các sản vật khi tràn về. Đây là thời điểm được mong đợi nhất trong
-                        năm để du khách có dịp ghé thăm vùng đất thân thương</p>
-                    <button class="primary-button">Đọc thêm</button>
+
+        <div class="blog__container d-flex p-5 justify-content-between gap-2 align-items-center">
+            <?php
+            foreach ($data['news'] as $row) {
+
+            ?>
+                <div class="blog__left">
+                    <div class="blog__infor d-flex flex-column p-4 align-items-center">
+                        <h6 class="text-uppercase"><?= $row['title'] ?></h6>
+                        <p class="text"><?= $row['opening_paragraph'] ?></p>
+                        <a href="<?= $path ?>user/home/news/<?= $row['news_id'] ?>"> <button class="primary-button">Đọc thêm</button>
+                        </a>
+                    </div>
+                    <img src="<?= $row['news_img'] ?>" alt="photo">
                 </div>
-                <img src="https://tourbonphuong.com/upload/baiviet/hinh-cam-nabg-8635_625x430.jpg" alt="photo">
-            </div>
-            <div class="blog__left flex-1">
-                <div class="blog__infor d-flex flex-column p-4 align-items-center">
-                    <h6 class="text-uppercase">Cẩm nang du lịch</h6>
-                    <p>Những ai đã một lần trải nghiệm mùa nước nổi ở miền Tây thì hẳn sẽ không thể nào quên đi cảnh sắc thiên nhiên và các sản vật khi tràn về. Đây là thời điểm được mong đợi nhất trong
-                        năm để du khách có dịp ghé thăm vùng đất thân thương</p>
-                    <button class="primary-button">Đọc thêm</button>
-                </div>
-                <img src="https://tourbonphuong.com/upload/baiviet/dac-san-1794_625x430.jpg" alt="photo">
-            </div>
+            <?php
+            } ?>
         </div>
     </div>
 </div>
