@@ -106,3 +106,20 @@
           </form>
         </div>
 </div>
+
+<div style="<?php if ($data['isSuccess']) {
+    echo 'display:block;';}?>" class="modal" tabindex="-1" id="success-booking" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Đặt tour thành công</h5>
+      </div>
+      <div class="modal-body">
+        <p>Cảm ơn vì đã chọn CodeTour</p>
+      </div>
+      <div class="modal-footer mx-auto">
+        <a href="<?php echo $path ?>user/home/homepage" type="button" class="btn btn-primary">Về trang chủ</a>
+      </div>
+    </div>
+  </div>
+</div>
