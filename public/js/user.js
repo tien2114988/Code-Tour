@@ -30,8 +30,6 @@ togglePassword2.addEventListener("click", function () {
   this.classList.toggle("bi-eye");
 });
 
-
-
 const togglePassword3 = document.querySelector("#togglePassword3");
 const password3 = document.querySelector("#password3");
 
