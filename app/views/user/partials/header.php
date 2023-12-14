@@ -21,13 +21,13 @@ if (isset($_SESSION['user-id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo $path ?>/css/page.css">
-  <!-- <link rel="stylesheet" href="<?php echo $path ?>/css/style.css"> -->
+  <link rel="stylesheet" href="<?php echo $path ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo $path ?>/css/user.css">
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid px-5">
       <a class="me-5 p-0 navbar-brand" href="#">
         <img src="<?php echo $path ?>img/logo.avif" alt="Bootstrap" width="40" height="40">
@@ -82,7 +82,7 @@ if (isset($user_id)) {
                   <li><a href="<?php echo $path ?>user/account/">Thông tin tài khoản</a></li>
                   <li><a href="<?php echo $path ?>user/account/changepass">Đổi mật khẩu</a></li>
                   <li><a href="<?php echo $path ?>user/account/manage">Quản lý đặt tour</a></li>
-                  <li><a href="<?php echo $path ?>user/account/">Đăng xuất</a>
+                  <li><a href="<?php echo $path ?>user/account/logout">Đăng xuất</a>
                   </li>
                 </ul>
               </div>
@@ -100,7 +100,7 @@ if (isset($user_id)) {
           </li>
 
       </ul>
-      <form class="d-flex" role="search" action="<?php if ($data['page'] == 'tour/tour-list') {
+      <form class="d-flex" role="search" action="<?php if ($data['page'] != 'news/news-list') {
     echo $path . "user/tour/tour_list/-1";
 } else {
     echo $path . "user/news/news_list";
