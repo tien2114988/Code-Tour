@@ -1,6 +1,6 @@
 
 <nav aria-label="breadcrumb">
-    <div class="bg-body-secondary">
+    <div class="bg-body-secondary hide">
         <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
         <li class="breadcrumb-item">
           <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
