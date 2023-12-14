@@ -93,7 +93,7 @@ if (isset($user_id)) {
                 <p class="text-center mb-0">THÔNG TIN TÀI KHOẢN</p>
                 <hr class="hr hr-blurry w-75 my-2 mx-auto" />
                 <div class="d-grid gap-2 col-10 mx-auto">
-                  <button onclick="location.href='<?php echo $path ?>authen/home/login'" class="btn btn-primary" type="button">Đăng nhập</button>
+                  <a href="<?php echo $path ?>authen/home/login" class="btn btn-primary" type="button">Đăng nhập</a>
                   <!-- <button onclick="location.href=''" class="btn btn-success" type="button">Đăng ký</button> -->
                 </div>
               </div>
