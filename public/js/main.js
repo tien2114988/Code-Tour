@@ -18,4 +18,14 @@ $(document).ready(function() {
     $('.cmt-confirm-btn').click((e) => {
         window.location.replace(cmtDel);
     })
+
+    // Handle delete comment (feedback)
+    var bookingDel;
+    $('.booking-delete-btn').click((e) => {
+        bookingDel = e.target.href;
+        e.preventDefault();
+    });
+    $('.booking-confirm-btn').click((e) => {
+        window.location.replace(bookingDel);
+    })
 });
