@@ -25,18 +25,20 @@ class BookingModel
     //     $data = $this->database->select($query);
     //     return $data->fetch_all(MYSQLI_ASSOC)[0];
     // }
-    public function getAllBookingById($user_id){
-        $sql = "select distinct booking_id, fullname, email, address, phone_number, total_money, 
-        created_datetime, depart_date, status,  tour_name from booking 
+    public function getAllBookingById($user_id)
+    {
+        $sql = "select distinct booking_id, fullname, email, address, phone_number, total_money,
+        created_datetime, depart_date, status,  tour_name from booking
         join tour on booking.tour_id = tour.tour_id where user_id = $user_id;";
-        $result = $this->database->select($sql);        
+        $result = $this->database->select($sql);
         return $result;
     }
-    public function getAllBookingByBId($user_id,$booking_id){
-        $sql = "select distinct fullname, email, address, phone_number, total_money,adult_count,child_count, 
-        created_datetime, depart_date, status,  tour_name from booking 
+    public function getAllBookingByBId($user_id, $booking_id)
+    {
+        $sql = "select distinct fullname, email, address, phone_number, total_money,adult_count,child_count,
+        created_datetime, depart_date, status,  tour_name from booking
         join tour on booking.tour_id = tour.tour_id where user_id = $user_id and booking_id = $booking_id;";
-        $result = $this->database->select($sql);        
+        $result = $this->database->select($sql);
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
@@ -54,8 +56,11 @@ class BookingModel
         $user_id = $data['user_id'];
         $created_datetime = $data['created_datetime'];
 
-        $query = "INSERT INTO `booking`(`booking_id`, `adult_count`, `child_count`, `depart_date`, `total_money`, `fullname`, `address`, `phone_number`, `email`, `status`, `user_id`, `tour_id`,`created_datetime`) VALUES ('','$adult_count','$child_count','$depart_date','$total_money','$fullname','$address','$phone_number','$email','0','$user_id','$tour_id','$created_datetime')";
-
+        if ($user_id) {
+            $query = "INSERT INTO `booking`(`booking_id`, `adult_count`, `child_count`, `depart_date`, `total_money`, `fullname`, `address`, `phone_number`, `email`, `status`, `user_id`, `tour_id`,`created_datetime`) VALUES ('','$adult_count','$child_count','$depart_date','$total_money','$fullname','$address','$phone_number','$email','0','$user_id','$tour_id','$created_datetime')";
+        } else {
+            $query = "INSERT INTO `booking`(`booking_id`, `adult_count`, `child_count`, `depart_date`, `total_money`, `fullname`, `address`, `phone_number`, `email`, `status`, `user_id`, `tour_id`,`created_datetime`) VALUES ('','$adult_count','$child_count','$depart_date','$total_money','$fullname','$address','$phone_number','$email','0',null,'$tour_id','$created_datetime')";
+        }
         return $this->database->insert($query);
     }
 }

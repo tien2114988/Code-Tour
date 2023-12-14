@@ -1,3 +1,17 @@
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Tài khoản
+          </li>
+      </ol>
+    </div>
+    </nav>
+
+
 <div class="container m-auto w-100 my-5">
     <div class="account__information ">
         <div class="account__information-title d-flex justify-content-center">
@@ -22,7 +36,7 @@
                         <i class="bi bi-map"></i>
                         <a href="<?php echo $path ?>user/account/changepass">Đổi mật khẩu</a>
                     </li>
-                    
+
                     <li>
                         <i class="bi bi-box-arrow-in-right"></i>
                         <a href="<?php echo $path ?>user/account/logout">Đăng xuất</a>
@@ -34,25 +48,25 @@
                 <div class="user__infor-detail">
                     <form action="#" id="update__form" method="post">
                         <div class="form-floating">
-                            <input name="fullname" type="text" id="full-name" value="<?= $data['user']['fullname'] ?? null?>"
+                            <input name="fullname" type="text" id="full-name" value="<?=$data['user']['fullname'] ?? null?>"
                             class="form-control mb-2  w-100" placeholder="Họ và tên">
                             <label for="full-name">Họ và tên<label>
                         </div>
                         <!-- <div class="form-floating">
-                            <input name="date" type="date" id="full-name" value="<?= $data['user']['date'] ?? null?>"
+                            <input name="date" type="date" id="full-name" value="<?=$data['user']['date'] ?? null?>"
                             class="form-control mb-2  w-100">
                             <label for="birthday">Ngày tháng năm sinh</label>
                         </div> -->
                         <div id="user-info__select-location">
 
                             <div class="form-floating">
-                                <input name="detail" type="text" value="<?= $data['user']['address'] ?? null?>"
+                                <input name="detail" type="text" value="<?=$data['user']['address'] ?? null?>"
                                 class="form-control mb-2 w-100" id="address" placeholder="Số nhà, đường,...">
                                 <label for="address">Địa chỉ hiện tại</label>
                             </div>
                         </div>
                         <div class="form-floating">
-                            <input name="phone" type="text" id="phone-number" value="<?= $data['user']['phone_number'] ?? null?>"
+                            <input name="phone" type="text" id="phone-number" value="<?=$data['user']['phone_number'] ?? null?>"
                             class="form-control mb-2 w-100" placeholder="Số điện thoại">
                             <label for="phone-number">Số điện thoại</label>
                         </div>
@@ -61,16 +75,16 @@
                             <button type="submit" class="btn btn-primary" name="update">CẬP NHẬP THÔNG TIN TÀI KHOẢN</button>
 
                         </div>
-                        
+
                         <input type="hidden" name='id'>
                     </form>
-                    
+
                 </div>
 
             </div>
 
 
-            
+
         </div>
     </div>
 </div>

@@ -1,10 +1,15 @@
-<div class="introduce bg-secondary px-5 py-1">
-    <h4 class="p-0 m-0 text-2xl">
-        <a href="" class="text-white">Trang chủ</a>
-        <span><i class="bi bi-caret-right-fill"></i></span>
-        <a href="" class="text-white">Về chúng tôi</a>
-    </h4>
-</div>
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Giới thiệu
+          </li>
+      </ol>
+    </div>
+    </nav>
 <div class="m-4">
     <div class="container p-4">
         <div class="introduce__container d-flex flex-row w-100">
@@ -14,18 +19,18 @@
                         <h4 class="text-uppercase text-2xl fw-bold">VỀ CHÚNG TÔI</h4>
                     </div>
                     <div class="introduct__left-content p-4">
-                        <p class="fw-bold text-center">Công ty TNHH Du Lịch Quốc Tế Bốn Phương</p>
+                        <p class="fw-bold text-center">Công ty TNHH Du Lịch Quốc Tế CodeTour</p>
                         <p class="fw-bold px-5">Thời gian thành lập và quá trình phát triển</p>
                         <p class="mt-2">
-                            Công ty <span class="fw-bold">TNHH du lịch quốc tế Bốn Phưong</span> đuợc thanh lập vao năm 2014, voi tên gọi Tour Bốn Phương. Sau nhieu năm hình
-                            thành và phát triển, Tour Bốn Phương không ngừng nghiên cứu và luôn là đơn vị tiên phong trong việc ứng dụng công nghệ
+                            Công ty <span class="fw-bold">TNHH du lịch quốc tế CodeTour</span> đuợc thanh lập vao năm 2014, voi tên gọi Tour CodeTour. Sau nhieu năm hình
+                            thành và phát triển, Tour CodeTour không ngừng nghiên cứu và luôn là đơn vị tiên phong trong việc ứng dụng công nghệ
                             hiện đại kết hợp với dịch vụ. Chúng tôi luôn ưu tiên cung cấp những ý tưởng du lịch độc đáo và sáng tạo nhằm đem lại trải
                             nghiệm du lịch tốt nhất cho du khách.
                         </p>
                         <p class="fw-bold px-5 mt-2">Lĩnh vực hoạt động</p>
                         <div class="mt-2">
                             <p>
-                                <span class="fw-bold">Tour Bốn Phương</span> hoạt động như một nhà điều hành tour du lịch trong và ngoài nước, chuyên tổ chức các tour du lịch về miền
+                                <span class="fw-bold">Tour CodeTour</span> hoạt động như một nhà điều hành tour du lịch trong và ngoài nước, chuyên tổ chức các tour du lịch về miền
                                 Tây như:
                             </p>
                             <ul>
@@ -60,7 +65,7 @@
                         </div>
                         <div>
                             <p>
-                                <span class="fw-bold">Tour Bốn Phương </span>tự tin có thể đáp ứng nhu cầu đa dạng của du khách khi tham quan miền Tây. Không những thế, chúng tôi
+                                <span class="fw-bold">Tour CodeTour </span>tự tin có thể đáp ứng nhu cầu đa dạng của du khách khi tham quan miền Tây. Không những thế, chúng tôi
                                 còn cung cấp các giải pháp du lịch để nhằm mang đến cho khách hàng chuyến du lịch như ý. Tất cả đều được điều chỉnh một
                                 cách chuyên nghiệp phù hợp nhu cầu và mang lại sự thoải mái, tiện lợi cho du khách, cho dù đó là những chuyến du lịch trọn
                                 gói hay du lịch tự tuc.
@@ -69,7 +74,7 @@
                         <p class="fw-bold px-5 mt-2">Tiêu chí hoạt động</p>
                         <div>
                             <p>
-                                Với phương châm mang lại những giá trị tốt nhất cho du khách. <span class="fw-bold">Tour Bốn Phương </span> luôn cung cấp những gì tốt nhất, thuận tiện
+                                Với phương châm mang lại những giá trị tốt nhất cho du khách. <span class="fw-bold">Tour CodeTour </span> luôn cung cấp những gì tốt nhất, thuận tiện
                                 nhất đồng thời tìm kiếm những điểm đến và trải nghiệm mới với tiêu chí:
                             </p>
                             <ul>
@@ -99,8 +104,8 @@
                         <p class="fw-bold px-5 mt-2">Thành quả đạt được</p>
                         <div>
                             <p class="mt-2">
-                                Xuyên suốt quá trình hoạt động <span class="fw-bold">Tour Bốn Phương </span> may mắn nhận được sự tin tưởng và ung hộ của hơn 500 nghìn khách hàng.
-                                Đây là nguồn động viên to lớn và là động lực để <span class="fw-bold">Tour Bốn Phương </span> ngày càng hoàn thiện và phát triển. Chúng tôi luôn hi vọng
+                                Xuyên suốt quá trình hoạt động <span class="fw-bold">Tour CodeTour </span> may mắn nhận được sự tin tưởng và ung hộ của hơn 500 nghìn khách hàng.
+                                Đây là nguồn động viên to lớn và là động lực để <span class="fw-bold">Tour CodeTour </span> ngày càng hoàn thiện và phát triển. Chúng tôi luôn hi vọng
                                 có the mang lại cho quý khách hang nhung chuyen du lịch mien Tay trọn ven nhất.
                             </p>
                         </div>
@@ -126,32 +131,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="introduct__left-comment mt-5 border rounded py-2 px-4">
-                    <div class="comment__box">
-                        <h6 class="text-uppercase text-2xl fw-bold text-primary my-4">bình luận bài viết</h6>
-                        <div class="box-infor d-flex flex-row d-flex flex-row justify-content-between align-items-center mb-4">
-                            <div>
-                                <p>1. Nhập họ và tên</p>
-                                <input type="text" class="w-100">
-                            </div>
-                            <div>
-                                <p>2. Nhập email</p>
-                                <input type="email" class="w-100">
-                            </div>
-                            <div>
-                                <p>3. Nhập số điện thoại</p>
-                                <input type="text" class="w-100">
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            <div>
-                                <p>4. Viết nhận xét của bạn vào bên dưới</p>
-                                <textarea name="" id="" cols="30" rows="10" class="w-100 mt-2"></textarea>
-                            </div>
-                        </div>
-                        <button class="primary-button bg-primary">GỬI NGAY</button>
-                    </div>
-                </div>
+
             </div>
             <div class="introduce__right flex-1">
                 <div class="group-sidebox border py-2 px-2 d-flex flex-column gap-1 ">

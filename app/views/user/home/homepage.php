@@ -29,7 +29,7 @@
             <div class="feature__img d-flex flex-row flex-wrap p-4 w-100 justify-content-between">
                 <?php
                 foreach ($data['tour_feature'] as $row) {
-
+                    // var_dump($row);
 
                 ?>
                     <div class="container__item d-flex flex-1 justify-content-center align-items-end">
@@ -38,7 +38,7 @@
                             <h6 class="text-uppercase text-center"><?= $row['tour_name'] ?></h6>
                             <!-- <h7 class="text-uppercase">Tạt mươn bắt cá</h7> -->
                             <p><span class="text-uppercase">Giá </span><?= $row['adult_price'] ?> VNĐ</p>
-                            <button class="primary-button">ĐẶT NGAY</button>
+                            <a href="<?= $path ?>user/tour/tour_detail/<?= $row['tour_id'] ?>"><button class="primary-button">ĐẶT NGAY</button></a>
                         </div>
                     </div>
                 <?php
@@ -68,8 +68,8 @@
             ?>
                 <div class="tour__main-left w-50 flex-1">
                     <div class="tour__infor d-flex flex-column w-50 align-items-center justify-content-center">
-                        <h6 class="text-uppercase text-center"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
-                        <h7 class="text-uppercase text-center"><?= $data['tour_five'][$i]['location'] ?></h7>
+                        <h6 class="text-uppercase text-center text"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                        <h7 class="text-uppercase text-center text"><?= $data['tour_five'][$i]['location'] ?></h7>
                         <p><span class="fw-bold">Giá: </span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
                         <button class="primary-button">ĐẶT NGAY</button>
                     </div>
@@ -89,8 +89,8 @@
                         <div class="tour__main-sub flex-1">
                             <img src="<?= $data['tour_five'][$i]['avatar'] ?>" alt="photo">
                             <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                                <h6 class="text-uppercase"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
-                                <h7 class="text-uppercase"><?= $data['tour_five'][$i]['location'] ?></h7>
+                                <h6 class="text-uppercase text"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                                <h7 class="text-uppercase text"><?= $data['tour_five'][$i]['location'] ?></h7>
                                 <p><span class="fw-bold">Giá:</span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
                                 <button class="primary-button">ĐẶT NGAY</button>
                             </div>
@@ -105,8 +105,8 @@
                         <div class="tour__main-sub flex-1">
                             <img src="<?= $data['tour_five'][$i]['avatar'] ?>" alt="photo">
                             <div class="tour__infor_mini d-flex flex-column justify-items-center">
-                                <h6 class="text-uppercase"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
-                                <h7 class="text-uppercase"><?= $data['tour_five'][$i]['location'] ?></h7>
+                                <h6 class="text-uppercase text"><?= $data['tour_five'][$i]['tour_name'] ?></h6>
+                                <h7 class="text-uppercase text"><?= $data['tour_five'][$i]['location'] ?></h7>
                                 <p><span class="fw-bold">Giá:</span> <?= $data['tour_five'][$i]['adult_price'] ?>VNĐ</p>
                                 <button class="primary-button">ĐẶT NGAY</button>
                             </div>
@@ -126,14 +126,15 @@
             <?php
             foreach ($data['sub_cate'] as $row) {
 
-
             ?>
                 <div class="tour__item p-2">
                     <div class="tour__item-infor p-2 d-flex flex-column">
                         <h7 class="text-uppercase"><?= $row['category_name'] ?></h7>
                         <p><span><?= $row['count_tour'] ?></span> Tour</p>
                     </div>
-                    <img class="w-100" src="<?= $row['category_img'] ?>">
+                    <a href="<?php echo $path ?>user/tour/tour_list/<?= $row['category_id'] ?>">
+                        <img class="w-100" src="<?= $row['category_img'] ?>">
+                    </a>
                 </div>
             <?php
             }
@@ -154,10 +155,12 @@
                     <div class="blog__infor d-flex flex-column p-4 align-items-center">
                         <h6 class="text-uppercase"><?= $row['title'] ?></h6>
                         <p class="text"><?= $row['opening_paragraph'] ?></p>
-                        <a href="<?= $path ?>user/home/news/<?= $row['news_id'] ?>"> <button class="primary-button">Đọc thêm</button>
+                        <a href="<?= $path ?>user/news/news_detail/<?= $row['news_id'] ?>"> <button class="primary-button">Đọc thêm</button>
                         </a>
                     </div>
-                    <img src="<?= $row['news_img'] ?>" alt="photo">
+
+                        <img src="<?= $row['news_img'] ?>" alt="photo">
+                    </a>
                 </div>
             <?php
             } ?>

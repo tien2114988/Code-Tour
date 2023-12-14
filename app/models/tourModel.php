@@ -52,13 +52,13 @@ class TourModel
     }
     
     public function getThree(){
-        $sql = "SELECT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 3;";
+        $sql = "SELECT DISTINCT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 3;";
         $data = $this->database->select($sql);
         // var_dump($data);
         return $data;
     }
     public function getFive(){
-        $sql = "SELECT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 5;";
+        $sql = "SELECT DISTINCT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 5;";
         $data = $this->database->select($sql);
         // var_dump($data);
         return $data;

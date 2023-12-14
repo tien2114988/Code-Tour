@@ -1,3 +1,17 @@
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Tài khoản
+          </li>
+      </ol>
+    </div>
+    </nav>
+
+
 <div class="container m-auto w-100 my-5">
     <div class="account__information ">
         <div class="account__information-title d-flex justify-content-center">
@@ -46,54 +60,52 @@
                         </thead>
                         <tbody>
                             <?php
-                            if ($data['booking']) {
-                                while ($row = mysqli_fetch_assoc($data['booking'])) {
+if ($data['booking']) {
+    while ($row = mysqli_fetch_assoc($data['booking'])) {
 
+        // var_dump($row);
 
-
-                                    // var_dump($row);
-
-                            ?>
+        ?>
                                     <tr>
-                                        <td><?= $row['tour_name'] ?></td>
-                                        <td><?= $row['created_datetime'] ?></td>
-                                        <td><?= $row['depart_date'] ?></td>
+                                        <td><?=$row['tour_name']?></td>
+                                        <td><?=$row['created_datetime']?></td>
+                                        <td><?=$row['depart_date']?></td>
                                         <?php
-                                        if ($row['status'] == 0) :
-                                        ?>
+if ($row['status'] == 0):
+        ?>
                                             <td class="text-warning">
                                                 Đang xử lý
                                             </td>
-                                        <?php elseif ($row['status'] == 1) : ?>
+                                        <?php elseif ($row['status'] == 1): ?>
                                             <td class="text-primary">
                                                 Đã xác nhận
                                             </td>
-                                        <?php elseif ($row['status'] == 2) : ?>
+                                        <?php elseif ($row['status'] == 2): ?>
                                             <td class="text-success">
                                                 Đã hoàn thành
                                             </td>
-                                        <?php elseif ($row['status'] == 3) : ?>
+                                        <?php elseif ($row['status'] == 3): ?>
                                             <td class="text-danger">
                                                 Đã hủy
                                             </td>
-                                        <?php endif ?>
-                                        <td><?= $row['total_money'] ?></td>
+                                        <?php endif?>
+                                        <td><?=$row['total_money']?></td>
                                         <td class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" data-order-id="<?= $row['booking_id'] ?>">
+                                            <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" data-order-id="<?=$row['booking_id']?>">
                                                 XEM
                                             </button>
                                         </td>
                                     </tr>
                             <?php
-                                }
-                            } ?>
+}
+}?>
                         </tbody>
                     </table>
                     <?php
-                    if (!$data['booking']) {
-                    ?>
+if (!$data['booking']) {
+    ?>
                         <p class="text-2xl text-center fw-bold"> Bạn chưa đặt tour nào cả</p>
-                    <?php } ?>
+                    <?php }?>
                 </div>
 
 

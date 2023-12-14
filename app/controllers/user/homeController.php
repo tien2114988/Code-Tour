@@ -4,7 +4,9 @@ class HomeController extends Controller
 {
     private $categoryModel;
     private $category;
-    private $sub_cate;
+    private $sub_cate;    private $generalModel;
+    private $general;
+
     private $contactModel;
 
     private $newsModel;
@@ -21,6 +23,10 @@ class HomeController extends Controller
         $this->newsModel = $this->model("newsModel");
         $this->tourModel = $this->model("tourModel");
         $this->imgModel = $this->model("imgModel");
+        $this->generalModel = $this->model("generalModel");
+
+        $this->general = $this->generalModel->getAll();
+
         $this->category = $this->categoryModel->getAll();
     }
     public function index()
@@ -42,13 +48,13 @@ class HomeController extends Controller
         }
         $this->viewUser('layout', [
             'page' => 'home/homepage', 'category' => $this->category, 'sub_cate' => $this->sub_cate, 'news' => $this->news,
-            'tour_feature' => $_tours, 'tour_five' => $_tours_five
+            'tour_feature' => $_tours, 'tour_five' => $_tours_five,'general' => $this->general
         ]);
     }
 
     public function introduction()
     {
-        $this->viewUser('layout', ['page' => 'home/introduction', 'category' => $this->category]);
+        $this->viewUser('layout', ['page' => 'home/introduction', 'category' => $this->category, 'general' => $this->general]);
     }
     private function format_price_by_tour($tour)
     {
@@ -58,7 +64,7 @@ class HomeController extends Controller
     }
     public function contact()
     {
-        $this->viewUser('layout', ['page' => 'home/contact', 'category' => $this->category]);
+        $this->viewUser('layout', ['page' => 'home/contact', 'category' => $this->category, 'general' => $this->general]);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = filter_var($_POST['fullname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -69,7 +75,7 @@ class HomeController extends Controller
                 // Handle missing required fields
                 $error = "All fields are required";
             }
-            if ($this->contactModel->insert($name, $address, $phone, $email, $description)) {
+            if  ($this->contactModel->insert($name, $address, $phone, $email, $description))  {
                 echo "<script type='text/javascript'>toastr.success('Cảm ơn bạn đã liên hệ với chúng tôi')</script>";
             }
         }
@@ -86,6 +92,6 @@ class HomeController extends Controller
         $all_img = $this->imgModel->getAll();
         
         $this->viewUser('layout', ['page' => 'home/photography', 'category' => $this->category,
-            'imgs' => $all_img]);
+            'imgs' => $all_img, 'general' => $this->general]);
     }
 }

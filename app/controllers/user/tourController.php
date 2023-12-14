@@ -8,6 +8,8 @@ class TourController extends Controller
     private $commentModel;
     private $scheduleModel;
     private $bookingModel;
+    private $generalModel;
+    private $general;
 
     public function __construct()
     {
@@ -17,6 +19,9 @@ class TourController extends Controller
         $this->bookingModel = $this->model("bookingModel");
         $this->categoryModel = $this->model("categoryModel");
         $this->category = $this->categoryModel->getAll();
+        $this->generalModel = $this->model("generalModel");
+        $this->general = $this->generalModel->getAll();
+
     }
 
     private function format_price($tour)
@@ -35,6 +40,11 @@ class TourController extends Controller
         return $tour;
     }
 
+    
+
+   
+
+    
     public function tour_list($category_id = 0, $page = 1, $search = '')
     {
         //pagination
@@ -72,7 +82,7 @@ class TourController extends Controller
             $tour = $this->format_price($tour);
         }
 
-        $this->viewUser('layout', ['page' => 'tour/tour-list', 'category' => $this->category, 'category_name' => $category_name, 'tour' => $tour, 'maxPage' => $maxPage, 'currentPage' => $page, 'category_id' => $category_id, 'search' => $search]);
+        $this->viewUser('layout', ['page' => 'tour/tour-list', 'category' => $this->category, 'category_name' => $category_name, 'tour' => $tour, 'maxPage' => $maxPage, 'currentPage' => $page, 'category_id' => $category_id, 'search' => $search, 'general' => $this->general]);
     }
 
     private function checkEmail($value)
@@ -100,6 +110,8 @@ class TourController extends Controller
     public function tour_detail($id)
     {
         $tour = $this->tourModel->getById($id);
+
+        $category_name = $this->categoryModel->getCategoryName($tour['category_id']);
 
         $fullname = $email = $phone_number = $content = '';
         $fullname_err = $email_err = $phone_number_err = $content_err = '';
@@ -147,7 +159,7 @@ class TourController extends Controller
             $tour = $this->format_price_by_tour($tour);
         }
 
-        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule, 'comment' => $comment, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'content_err' => $content_err]);
+        $this->viewUser('layout', ['page' => 'tour/tour-detail', 'category' => $this->category, 'tour' => $tour, 'schedule' => $schedule, 'comment' => $comment, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'content_err' => $content_err, 'general' => $this->general, 'category_name' => $category_name]);
     }
 
     public function price_list($page = 1)
@@ -167,14 +179,68 @@ class TourController extends Controller
             $tour = $this->format_price($tour);
         }
 
-        $this->viewUser('layout', ['page' => 'tour/price-list', 'category' => $this->category, 'tour' => $tour, 'maxPage' => $maxPage, 'currentPage' => $page]);
+        $this->viewUser('layout', ['page' => 'tour/price-list', 'category' => $this->category, 'tour' => $tour, 'maxPage' => $maxPage, 'currentPage' => $page, 'general' => $this->general]);
     }
 
-    public function booking($id)
+    public function booking($tour_id, $user_id = null)
     {
-        $tour = $this->tourModel->getById($id);
+        $success = false;
 
-        $this->viewUser('layout', ['page' => 'tour/booking', 'category' => $this->category, 'tour' => $tour]);
+        $tour = $this->tourModel->getById($tour_id);
+
+        $fullname = $email = $phone_number = $address = '';
+        $fullname_err = $email_err = $phone_number_err = $address_err = '';
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!isset($_POST['fullname']) || strlen($_POST['fullname']) < 2) {
+                $fullname_err = 'Tên phải từ 2 kí tự trở lên';
+            } else {
+                $fullname = $_POST['fullname'];
+            }
+
+            if (!isset($_POST['email']) || !$this->checkEmail($_POST['email'])) {
+                $email_err = 'Email phải theo định dạng sth@sth.sth';
+            } else {
+                $email = $_POST['email'];
+            }
+
+            if (!isset($_POST['phone_number']) || !$this->checkPhone($_POST['phone_number'])) {
+                $phone_number_err = 'Số điện thoại phải gồm 10 số';
+            } else {
+                $phone_number = $_POST['phone_number'];
+            }
+
+            if (!isset($_POST['address']) || strlen($_POST['address']) <= 0) {
+                $address_err = 'Chưa nhập địa chỉ';
+            } else {
+                $address = $_POST['address'];
+
+            }
+
+            if (!$fullname_err && !$email_err && !$phone_number_err && !$address_err) {
+                $adult_count = $_POST['adult_count'];
+                $child_count = $_POST['child_count'];
+                $depart_date = $_POST['depart_date'];
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $created_datetime = date('Y-m-d H:i:s');
+                $total_money = $adult_count * $tour['adult_price'] + $child_count * $tour['child_price'];
+
+                $this->bookingModel->insert(["tour_id" => $tour_id,
+                    "fullname" => $fullname,
+                    "phone_number" => $phone_number,
+                    "email" => $email,
+                    "adult_count" => $adult_count, "child_count" => $child_count,
+                    "depart_date" => $depart_date,
+                    "total_money" => $total_money,
+                    "address" => $address,
+                    "user_id" => $user_id,
+                    "created_datetime" => $created_datetime,
+                ]);
+                $success = true;
+            }
+        }
+        $this->viewUser('layout', ['page' => 'tour/booking', 'category' => $this->category, 'tour' => $tour, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'address_err' => $address_err, 'general' => $this->general, 'isSuccess' => $success]);
+
     }
 
     public function make_booking($id)

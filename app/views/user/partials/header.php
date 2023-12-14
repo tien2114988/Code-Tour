@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['user-id'])) {
-  $user_id = $_SESSION['user-id'];
+    $user_id = $_SESSION['user-id'];
 }
 // echo ''.$user_id.'';
 ?>
@@ -20,9 +20,10 @@ if (isset($_SESSION['user-id'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo $path ?>css/user.css">
-  <link rel="stylesheet" href="<?php echo $path ?>css/page.css">
-  <link rel="stylesheet" href="<?php echo $path ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo $path ?>/css/page.css">
+  <link rel="stylesheet" href="<?php echo $path ?>/css/style.css">
+  <link rel="stylesheet" href="<?php echo $path ?>/css/user.css">
+
 </head>
 
 <body>
@@ -44,15 +45,15 @@ if (isset($_SESSION['user-id'])) {
             <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/home/introduction">Giới thiệu</a>
           </li>
           <li class="nav-item dropdown mx-1">
-            <a class="nav-link active dropdown-toggle" href="/user/tour/tour_list" aria-expanded="false">
-              Tour
-            </a>
-            <ul class="dropdown-menu hover">
-              <?php foreach ($data['category'] as $category) { ?>
+          <a class="nav-link active dropdown-toggle" href="<?php echo $path ?>user/tour/tour_list/0" aria-expanded="false">
+          Tour
+          </a>
+          <ul class="dropdown-menu hover">
+              <?php foreach ($data['category'] as $category) {?>
                 <li class=""><a class="dropdown-item" href="<?php echo $path ?>user/tour/tour_list/<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></a></li>
-              <?php } ?>
-            </ul>
-          </li>
+              <?php }?>
+          </ul>
+        </li>
           <li class="nav-item mx-1">
             <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/tour/price_list">Bảng giá</a>
           </li>
@@ -70,10 +71,9 @@ if (isset($_SESSION['user-id'])) {
               Tài khoản
             </a>
             <?php
-            if (isset($user_id)) {
+if (isset($user_id)) {
 
-
-            ?>
+    ?>
               <div class="header__user-dropdown dropdown-menu">
                 <p class="text-center mb-0">THÔNG TIN TÀI KHOẢN</p>
                 <hr class="hr hr-blurry w-75 my-2 mx-auto" />
@@ -82,11 +82,11 @@ if (isset($_SESSION['user-id'])) {
                   <li><a href="<?php echo $path ?>user/account/">Thông tin tài khoản</a></li>
                   <li><a href="<?php echo $path ?>user/account/changepass">Đổi mật khẩu</a></li>
                   <li><a href="<?php echo $path ?>user/account/manage">Quản lý đặt tour</a></li>
-                  <li><a href="<?php echo $path ?>user/account/">Đăng xuất</a>
+                  <li><a href="<?php echo $path ?>user/account/logout">Đăng xuất</a>
                   </li>
                 </ul>
               </div>
-            <?php } else {  ?>
+            <?php } else {?>
               <!-- Not login -->
               <div class="header__login-dropdown dropdown-menu">
                 <p class="text-center mb-0">THÔNG TIN TÀI KHOẢN</p>
@@ -96,14 +96,19 @@ if (isset($_SESSION['user-id'])) {
                   <!-- <button onclick="location.href=''" class="btn btn-success" type="button">Đăng ký</button> -->
                 </div>
               </div>
-            <?php } ?>
+            <?php }?>
           </li>
 
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+      </ul>
+      <form class="d-flex" role="search" action="<?php if ($data['page'] == 'tour/tour-list') {
+    echo $path . "user/tour/tour_list/-1";
+} else {
+    echo $path . "user/news/news_list";
+}
+?>">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
-  </nav>
+  </div>
+    </nav>
