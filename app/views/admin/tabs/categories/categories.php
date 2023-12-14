@@ -1,4 +1,4 @@
-<div class="flex justify-between">
+<div class="md:flex md:justify-between">
     <div class="text-2xl font-semibold mb-4">Danh sách danh mục</div>
     <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 text-center" type="button">
         Thêm danh mục
@@ -11,17 +11,17 @@
                 echo 'Thêm thất bại';
             } ?></div>
 <?php } ?>
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-left rtl:text-right text-gray-500">
-        <thead class="text-lg text-gray-700 bg-gray-50">
+        <thead class="text-lg text-gray-700 bg-gray-200">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     Tên danh mục
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 text-center">
                     Mã danh mục
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 text-center">
                     Số lượng tour
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -39,15 +39,17 @@
                             <?php echo $category->category_name ?>
                         </div>
                     </th>
-                    <td class="px-6 py-4">
+                    <td class="px-6 text-center py-4">
                         <?php echo $category->category_id ?>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 text-center py-4">
                         <?php echo $category->tour_count ?>
                     </td>
                     <td class="px-6 py-4 text-right">
-                        <a href="<?php echo $path ?>admin/categories/editCategory/<?php echo $category->category_id?>" class="py-2 px-4 font-medium mx-1 text-blue-400 border border-blue-400 rounded-lg hover:text-white hover:bg-blue-400">Chỉnh sửa</a>
-                        <a href="<?php echo $path ?>admin/categories/deleteCategory/<?php echo $category->category_id?>" class="py-2 px-4 font-medium mx-1 text-red-400 border border-red-400 rounded-lg hover:text-white hover:bg-red-400">Xóa</a>
+                        <div class="flex justify-end">
+                            <a href="<?php echo $path ?>admin/categories/editCategory/<?php echo $category->category_id ?>" class="block min-w-fit py-2 px-4 font-medium mx-1 text-blue-400 border border-blue-400 rounded-lg hover:text-white hover:bg-blue-400">Chỉnh sửa</a>
+                            <a href="<?php echo $path ?>admin/categories/deleteCategory/<?php echo $category->category_id ?>" class="block min-w-fit py-2 px-4 font-medium mx-1 text-red-400 border border-red-400 rounded-lg hover:text-white hover:bg-red-400">Xóa</a>
+                        </div>
                     </td>
                 </tr>
             <?php } ?>

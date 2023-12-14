@@ -13,6 +13,6 @@
     </div>
     <div class="flex justify-end">
         <button name="editSubmit" type="submit" class="mx-2 px-4 py-2 border border-blue-400 text-blue-400 rounded-lg hover:scale-105 hover:text-white hover:bg-blue-400 hover:font-semibold ease-out duration-100">Lưu thay đổi</button>
-        <button type="reset" class="mx-2 px-4 py-2 border border-red-400 text-red-400 rounded-lg hover:scale-105 hover:text-white hover:bg-red-400 hover:font-semibold ease-out duration-100">Bỏ thay đổi</button>
+        <a href="<?php echo $path?>admin/categories" class="block mx-2 px-4 py-2 border border-red-400 text-red-400 rounded-lg hover:scale-105 hover:text-white hover:bg-red-400 hover:font-semibold ease-out duration-100">Hủy bỏ</a>
     </div>
 </form>
