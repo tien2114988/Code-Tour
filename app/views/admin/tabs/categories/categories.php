@@ -18,10 +18,10 @@
                 <th scope="col" class="px-6 py-3">
                     Tên danh mục
                 </th>
-                <th scope="col" class="px-6 py-3 text-center">
+                <th scope="col" class="px-6 py-3 whitespace-nowrap text-center">
                     Mã danh mục
                 </th>
-                <th scope="col" class="px-6 py-3 text-center">
+                <th scope="col" class="px-6 py-3 whitespace-nowrap text-center">
                     Số lượng tour
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -30,8 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-            foreach ($data['categories'] as $category) { ?>
+            <?php foreach ($data['categories'] as $category) { ?>
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         <div class="flex items-center">
