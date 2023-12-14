@@ -21,7 +21,7 @@
 
 
 
-            <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 g-4 mt-5">
                 <?php if ($data['news']) {
     foreach ($data['news'] as $news) {?>
                 <a class="item-list__card-link px-3 link-underline link-underline-opacity-0"  href="<?php echo $path ?>user/news/news_detail/<?php echo $news['news_id'] ?>">

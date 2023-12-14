@@ -31,7 +31,8 @@ class NewsModel
         return $data->fetch_all(MYSQLI_ASSOC)[0];
     }
 
-    public function getTwo(){
+    public function getTwo()
+    {
         $query = "SELECT * FROM news ORDER BY RAND () LIMIT 2;";
         $data = $this->database->select($query);
         return $data->fetch_all(MYSQLI_ASSOC);
@@ -47,5 +48,19 @@ class NewsModel
         }
         $data = $this->database->select($query);
         return $data->fetch_all(MYSQLI_ASSOC)[0]['count'];
+    }
+
+    public function getTour($id)
+    {
+
+        $query = "SELECT * FROM related_tour,tour WHERE news_id=$id and related_tour.tour_id=tour.tour_id";
+
+        $data = $this->database->select($query);
+        if ($data) {
+            return $data->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return $data;
+        }
+
     }
 }
