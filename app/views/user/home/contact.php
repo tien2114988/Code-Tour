@@ -46,7 +46,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required>Mô tả</textarea>
+                            <textarea name="description" placeholder="Mô tả" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                         </div>
                     </div>
                     <div class="row">
