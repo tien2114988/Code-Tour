@@ -34,7 +34,7 @@ class Database
         self::$link = null;
     }
 
-// Select or Read data
+    // Select or Read data
     public function select($query)
     {
         $result = self::$link->query($query) or
@@ -46,7 +46,7 @@ class Database
         }
     }
 
-// Insert data
+    // Insert data
     public function insert($query)
     {
         $insert_row = self::$link->query($query) or
@@ -58,7 +58,7 @@ class Database
         }
     }
 
-// Update data
+    // Update data
     public function update($query)
     {
         $update_row = self::$link->query($query) or
@@ -70,7 +70,7 @@ class Database
         }
     }
 
-// Delete data
+    // Delete data
     public function delete($query)
     {
         $delete_row = self::$link->query($query) or
