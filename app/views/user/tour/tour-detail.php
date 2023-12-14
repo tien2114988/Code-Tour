@@ -68,12 +68,15 @@
                       <img class='m-3 w-95' src="<?php echo $data['tour']['map'] ?>" alt="">
                     </div>
                     <div class="col-lg-6 m-3">
-                      <?php foreach ($data['schedule'] as $schedule) {?>
+                      <?php if ($data['schedule']) {foreach ($data['schedule'] as $schedule) {?>
                       <div class="">
                         <h4>Ngày <?php echo $schedule['day'] ?> : <span class="ps-3 steelblue fs-5"><i class="bi bi-crosshair"></i> <?php echo $schedule['location'] ?></span> </h4>
                         <p class="ps-lg-5"><?php echo $schedule['description'] ?></p>
                       </div>
                       <?php }?>
+                      <?php } else {?>
+                        <div>Chưa có lịch trình</div>
+                        <?php }?>
                     </div>
                   </div>
 
