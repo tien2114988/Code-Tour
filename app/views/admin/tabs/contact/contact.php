@@ -1,4 +1,4 @@
-<form action="<?php echo $path?>admin/contact/updateContact" method="POST" class="max-w-full">
+<form action="<?php echo $path?>admin/general/updateContact" method="POST" class="max-w-full">
     <div class="text-2xl">Thông tin liên hệ</div>
     <hr>
     <div class="max-w-2xl">
