@@ -51,7 +51,7 @@
                 <div class="d-flex form-row p-2">
                   <div class="col-md-6 p-2 form-group d-flex">
                     <label class="fw-semibold my-auto me-2" for="inputName">Chọn ngày khởi hành</label>
-                    <input name="depart_date" type="date" class="form-control w-50" id="inputName" value="" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
+                    <input required name="depart_date" type="date" class="form-control w-50" id="inputName" value="" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
                   </div>
                   <div class="col-md-6 p-2 form-group d-flex justify-content-end">
                     <label class="fw-semibold my-auto me-2 fs-5" for="inputEmail">Tổng giá : </label>
@@ -67,17 +67,21 @@
                   <input type="text" class="form-control m-2" placeholder="Họ tên" aria-label="Recipient's username"
                     aria-describedby="button-addon2" name="fullname">
                 </div>
+                <p class="text-danger ps-2"><?php echo $data['fullname_err'] ?></p>
                 <div class="input-group">
                   <input type="text" class="form-control m-2" placeholder="Số điện thoại" aria-label="Recipient's username"
                     aria-describedby="button-addon2" name="phone_number">
                 </div>
+                <p class="text-danger ps-2"><?php echo $data['phone_number_err'] ?></p>
                 <div class="input-group">
                   <input type="text" class="form-control m-2" placeholder="Email" aria-label="Recipient's username"
                     aria-describedby="button-addon2" name="email">
                 </div>
+                <p class="text-danger ps-2"><?php echo $data['email_err'] ?></p>
                 <div class="input-group">
-                  <textarea name="address" class="form-control m-2" cols="10" rows="4" placeholder="Địa chỉ"></textarea>
+                  <textarea name="address" class="form-control m-2" cols="10" rows="4" placeholder="Địa chỉ"></textarea><br>
                 </div>
+                <p class="text-danger ps-2"><?php echo $data['address_err'] ?></p>
                 <div class="my-3 text-center">
                   <button class="btn btn-warning w-75 text-white" type="submit">Đặt tour</button>
                 </div>

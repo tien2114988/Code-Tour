@@ -180,32 +180,58 @@ class TourController extends Controller
     public function make_booking($id)
     {
         $tour = $this->tourModel->getById($id);
+
+        $fullname = $email = $phone_number = $address = '';
+        $fullname_err = $email_err = $phone_number_err = $address_err = '';
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $fullname = $_POST['fullname'];
-            $phone_number = $_POST['phone_number'];
-            $email = $_POST['email'];
-            $address = $_POST['address'];
-            $adult_count = 10;
-            $child_count = 5;
-            $depart_date = date('Y-m-d H:i:s');
-            $created_datetime = date('Y-m-d H:i:s');
-            $total_money = 30000;
+            if (!isset($_POST['fullname']) || strlen($_POST['fullname']) < 2) {
+                $fullname_err = 'Tên phải từ 2 kí tự trở lên';
+            } else {
+                $fullname = $_POST['fullname'];
+            }
 
-            $this->bookingModel->insert(["tour_id" => $id,
-                "fullname" => $fullname,
-                "phone_number" => $phone_number,
-                "email" => $email,
-                "adult_count" => $adult_count, "child_count" => $child_count,
-                "depart_date" => $depart_date,
-                "total_money" => $total_money,
-                "address" => $address,
-                "user_id" => 1,
-                "created_datetime" => $created_datetime,
-            ]);
+            if (!isset($_POST['email']) || !$this->checkEmail($_POST['email'])) {
+                $email_err = 'Email phải theo định dạng sth@sth.sth';
+            } else {
+                $email = $_POST['email'];
+            }
 
+            if (!isset($_POST['phone_number']) || !$this->checkPhone($_POST['phone_number'])) {
+                $phone_number_err = 'Số điện thoại phải gồm 10 số';
+            } else {
+                $phone_number = $_POST['phone_number'];
+            }
+
+            if (!isset($_POST['address']) || strlen($_POST['address']) <= 0) {
+                $address_err = 'Chưa nhập địa chỉ';
+            } else {
+                $address = $_POST['address'];
+
+            }
+
+            if (!$fullname_err && !$email_err && !$phone_number_err && !$address_err) {
+                $adult_count = $_POST['adult_count'];
+                $child_count = $_POST['child_count'];
+                $depart_date = $_POST['depart_date'];
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $created_datetime = date('Y-m-d H:i:s');
+                $total_money = $adult_count * $tour['adult_price'] + $child_count * $tour['child_price'];
+
+                $this->bookingModel->insert(["tour_id" => $id,
+                    "fullname" => $fullname,
+                    "phone_number" => $phone_number,
+                    "email" => $email,
+                    "adult_count" => $adult_count, "child_count" => $child_count,
+                    "depart_date" => $depart_date,
+                    "total_money" => $total_money,
+                    "address" => $address,
+                    "user_id" => 1,
+                    "created_datetime" => $created_datetime,
+                ]);
+            }
         }
-        $this->viewUser('layout', ['page' => 'tour/booking', 'category' => $this->category, 'tour' => $tour]);
-
+        $this->viewUser('layout', ['page' => 'tour/booking', 'category' => $this->category, 'tour' => $tour, 'fullname_err' => $fullname_err, 'email_err' => $email_err, 'phone_number_err' => $phone_number_err, 'address_err' => $address_err]);
     }
 
 }
