@@ -80,7 +80,8 @@ class HomeController extends Controller
                         $_SESSION['user-id'] = $user_record['user_id'];
                         if ($user_record['role'] == 'A') {
                             $_SESSION['user_is_admin'] = true;
-                            header('Location: ' . '.');
+                            $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+                            header('Location: ' . "$path" . 'admin/users');
                             return;
                         }
                     } else {

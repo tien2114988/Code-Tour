@@ -16,7 +16,7 @@ class ToursController extends Controller
     }
 
     public function themTour(){
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category'=> $this->categoryModel->getAll_tri()]);
+        $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category'=> $this->categoryModel->getAll()]);
     }
 
     public function tourDetail($tour_id)
@@ -56,16 +56,16 @@ class ToursController extends Controller
     {
         // $this->tourModel->addSchedule($tour_id, $schedule_id, $day, $location, $description);
         // print_r($_POST);
-        $maxDay = $this->tourModel->getMaxDay()[0][0];
+        // $maxDay = $this->tourModel->getMaxDay()[0][0];
         // print_r($maxDay);
         // echo $maxDay;
-        if ($_POST['day'] > $maxDay) {
-            $this->tourModel->addSchedule($_POST['tour_id'], $_POST['day'], $_POST['dia-diem'], $_POST['mo-ta-lich-trinh']);
-            header("Location: /Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]");
-        } else {
-            echo "<h1>Số trang nhập không được lớn hơn $maxDay.</h1>";
-            echo "<a href=" . "/Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]>Quay về</a>";
-        }
+        // if ($_POST['day'] > $maxDay) {
+        $this->tourModel->addSchedule($_POST['tour_id'], $_POST['day'], $_POST['dia-diem'], $_POST['mo-ta-lich-trinh']);
+        header("Location: /Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]");
+        // } else {
+        //     echo "<h1>Số trang nhập không được lớn hơn $maxDay.</h1>";
+        //     echo "<a href=" . "/Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]>Quay về</a>";
+        // }
         exit();
     }
 

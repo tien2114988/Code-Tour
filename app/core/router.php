@@ -15,7 +15,7 @@ class Router
 
         // role
         if (isset($arr[0])) {
-            if ($arr[0] == "admin"||$arr[0] == "user") {
+            if ($arr[0] == "admin"|| $arr[0] == "user" || $arr[0] == "authen") {
                 $this->role = $arr[0];
             }
             unset($arr[0]);

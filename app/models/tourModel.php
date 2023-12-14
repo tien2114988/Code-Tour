@@ -103,6 +103,7 @@ class TourModel
 
     public function addTour($body)
     {
+        print_r($body);
         $query = sprintf(
             "INSERT INTO tour (`tour_name`, `adult_price`, `child_price`, `tour_include`, `tour_exclude`, `tour_condition`, `vehicle`, `hotel_rate`, `tour_days`, `category_id`, `description`,`tour_cancel`) VALUES ('%s',%s,%s,'%s','%s','%s','%s',%s,'%s',%s,'%s','%s')",
             $body['ten-tour'],
@@ -121,7 +122,7 @@ class TourModel
         $result = mysqli_query(Database::$link, $query);
         $tour_id_inserted = mysqli_insert_id(Database::$link);
 
-        $insert_schedule = sprintf("INSERT INTO tour_schedule (`day`, `location`, `description`,`tour_id`) values (%s,'%s','%s',%s)", $body['day'], $body['dia-diem'], $body['mo-ta-lich-trinh'] ,$tour_id_inserted);
+        $insert_schedule = sprintf("INSERT INTO tour_schedule (`day`, `location`, `description`,`tour_id`) values (%d,'%s','%s',%s)", (int)$body['day'], $body['dia-diem'], $body['mo-ta-lich-trinh'] ,$tour_id_inserted);
         $result2 = $this->database->insert($insert_schedule);
         $insert_image = sprintf("INSERT INTO tour_image (`img`, `tour_id`) values ('%s',%s)",$body['hinh-anh'] ,$tour_id_inserted);
         $result3 = $this->database->insert($insert_image);
