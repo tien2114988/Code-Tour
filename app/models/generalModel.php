@@ -27,4 +27,10 @@ class GeneralModel
             return false;
         }
     }
+    public function getAll()
+    {
+        $query = "SELECT * FROM general";
+        $data = $this->database->select($query);
+        return $data->fetch_all(MYSQLI_ASSOC)[0];
+    }
 }

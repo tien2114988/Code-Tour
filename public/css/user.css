@@ -8,12 +8,17 @@
 }
 
 /* header */
-.header__dropdown-menu-item:hover>.dropdown-menu {
+/* Enable hover for Bootstrap dropdown */
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.header__dropdown-menu-item>.dropdown-toggle:active {
-    pointer-events: none;
+/* Optional: Add some styles for better visual appearance */
+.dropdown-menu {
+    border: none;
+    /* Remove default border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle box shadow */
 }
 
 .header__user-dropdown,
