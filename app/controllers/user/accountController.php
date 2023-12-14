@@ -8,6 +8,8 @@ class accountController extends Controller
     private $user;
     private $userModel;
 
+    private $generalModel;
+    private $general;
 
     private $booking;
     private $bookingModel;
@@ -16,6 +18,9 @@ class accountController extends Controller
     {
         $this->categoryModel = $this->model("categoryModel");
         $this->category = $this->categoryModel->getAll();
+        $this->generalModel = $this->model("generalModel");
+        $this->general = $this->generalModel->getAll();
+
         $this->userModel = $this->model("userModel");
         $this->bookingModel = $this->model("bookingModel");
     }
@@ -29,15 +34,14 @@ class accountController extends Controller
         $this->user = $this->userModel->getById($user_id);
         /*
         if ($this->user) {
-            var_dump($this->user);
+        var_dump($this->user);
         }
         if ($this->address) {
-            var_dump($this->address);
+        var_dump($this->address);
         }
-        */
+         */
 
-
-        $this->viewUser('layout', ['page' => 'account/index', 'user' => $this->user]);
+        $this->viewUser('layout', ['page' => 'account/index', 'user' => $this->user, 'general' => $this->general, 'category' => $this->category]);
     }
     public function manage()
     {
@@ -48,7 +52,7 @@ class accountController extends Controller
         // echo $user_id;
         $this->booking = $this->bookingModel->getAllBookingById($user_id);
         //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
-        $this->viewUser('layout', ['page' => 'account/manage', 'category' => $this->category, 'booking' => $this->booking]);
+        $this->viewUser('layout', ['page' => 'account/manage', 'category' => $this->category, 'booking' => $this->booking, 'general' => $this->general]);
     }
     public function update()
     {
@@ -57,20 +61,19 @@ class accountController extends Controller
             $user_id = $_SESSION['user-id'];
         }
         $this->user = $this->userModel->getById($user_id);
-        
+
         /*
         var_dump($this->address);
         var_dump($this->user);
-        */
-        $this->viewUser('layout', ['page' => 'account/update', 'user' => $this->user]);
+         */
+        $this->viewUser('layout', ['page' => 'account/update', 'user' => $this->user, 'general' => $this->general, 'category' => $this->category]);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fullname = $_POST['fullname'];
             $detail = $_POST['detail'];
             $phone = $_POST['phone'];
-            $this->userModel->update($fullname, $phone,$user_id, $detail);
-            
-            
+            $this->userModel->update($fullname, $phone, $user_id, $detail);
+
             echo '<script type="text/javascript">toastr.success("Bạn đã cập nhập thành công")</script>';
         }
 
@@ -92,7 +95,7 @@ class accountController extends Controller
     }
     public function changepass()
     {
-        $this->viewUser('layout', ['page' => 'account/changepass', 'category' => $this->category]);
+        $this->viewUser('layout', ['page' => 'account/changepass', 'category' => $this->category, 'general' => $this->general]);
         if (isset($_SESSION['user-id'])) {
             $user_id = $_SESSION['user-id'];
         }
@@ -120,7 +123,6 @@ class accountController extends Controller
             } else {
                 $hash_password = password_hash($npassword, PASSWORD_DEFAULT);
 
-
                 $success = $this->userModel->updatePassword($hash_password, $email);
                 if ($success) {
                     echo '<script type="text/javascript">toastr.success("Bạn đã cập nhập mật khẩu thành công")</script>';
@@ -144,8 +146,8 @@ class accountController extends Controller
             $booking_id = $_POST['orderid'];
         }
         // echo $user_id;
-        $this->booking = $this->bookingModel->getAllBookingByBId($user_id,$booking_id);
+        $this->booking = $this->bookingModel->getAllBookingByBId($user_id, $booking_id);
         //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
-        $this->viewUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking]);
+        $this->viewUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking, 'general' => $this->general]);
     }
 }

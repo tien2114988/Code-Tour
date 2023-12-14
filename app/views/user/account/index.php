@@ -1,3 +1,17 @@
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Tài khoản
+          </li>
+      </ol>
+    </div>
+    </nav>
+
+
 <div class="container m-auto w-100 my-5">
     <div class="account__information ">
         <div class="account__information-title d-flex justify-content-center">
@@ -34,36 +48,36 @@
                     <div class="title">
                         <p>Họ và tên:</p>
 
-                        <?php if (isset($data['user']['fullname'])) : ?>
-                            <p><?= $data['user']['fullname'] ?></p>
-                        <?php else : ?>
+                        <?php if (isset($data['user']['fullname'])): ?>
+                            <p><?=$data['user']['fullname']?></p>
+                        <?php else: ?>
                             <p class='text-danger'>Bạn cần cập nhật họ và tên</p>
-                        <?php endif ?>
+                        <?php endif?>
                     </div>
                     <div class="title">
                         <p>Email:</p>
-                        <?php if (isset($data['user']['email'])) : ?>
-                            <p><?= $data['user']['email'] ?></p>
-                        <?php else : ?>
+                        <?php if (isset($data['user']['email'])): ?>
+                            <p><?=$data['user']['email']?></p>
+                        <?php else: ?>
                             <p class='text-danger'>Bạn cần cập nhật Email</p>
-                        <?php endif ?>
+                        <?php endif?>
                     </div>
                     <div class="title">
                         <p>Địa chỉ:</p>
-                        <?php if ($data['user']['address']) : ?>
-                            <p><?= $data['user']['address'] ?></p>
-                        <?php else : ?>
+                        <?php if ($data['user']['address']): ?>
+                            <p><?=$data['user']['address']?></p>
+                        <?php else: ?>
                             <p class='text-danger'>Bạn cần cập nhật Địa chỉ</p>
-                        <?php endif ?>
+                        <?php endif?>
                     </div>
-                    
+
                     <div class="title">
                         <p>Điện thoại</p>
-                        <?php if (isset($data['user']['phone_number'])) : ?>
-                            <p><?= $data['user']['phone_number'] ?></p>
-                        <?php else : ?>
+                        <?php if (isset($data['user']['phone_number'])): ?>
+                            <p><?=$data['user']['phone_number']?></p>
+                        <?php else: ?>
                             <p class='text-danger'>Bạn cần cập nhật số điện thoại</p>
-                        <?php endif ?>
+                        <?php endif?>
                     </div>
                 </div>
                 <div class="user__infor-btn mt-3">

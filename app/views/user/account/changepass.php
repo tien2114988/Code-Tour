@@ -1,3 +1,17 @@
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Tài khoản
+          </li>
+      </ol>
+    </div>
+    </nav>
+
+
 <div class="container m-auto w-100 my-5">
     <div class="account__information ">
         <div class="account__information-title d-flex justify-content-center">
@@ -67,7 +81,7 @@
 
                         <input type="hidden" name='id'>
                     </form>
-                    
+
                 </div>
 
             </div>

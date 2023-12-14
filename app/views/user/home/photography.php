@@ -1,10 +1,17 @@
-<div class="introduce bg-secondary px-5 py-1 mt-2">
-    <h4 class="p-0 m-0 text-2xl">
-        <a href="" class="text-white">Trang chủ</a>
-        <span><i class="bi bi-caret-right-fill"></i></span>
-        <a href="" class="text-white">Hình ảnh</a>
-    </h4>
-</div>
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Hình ảnh
+        </li>
+      </ol>
+    </div>
+    </nav>
+
+
 <div class="container p-2">
     <div class="image__heading">
         <h3 class="text-center image__heading-title">Hình ảnh</h3>

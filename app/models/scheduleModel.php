@@ -1,5 +1,5 @@
 <?php
-class CategoryModel
+class ScheduleModel
 {
     private $database;
 
@@ -8,21 +8,22 @@ class CategoryModel
         $this->database = new Database();
     }
 
-    public function getAll()
+    public function getAll($tour_id = '')
     {
-        $query = "SELECT * FROM category";
+        $query = "SELECT * FROM tour_schedule WHERE tour_id=$tour_id ORDER BY day ASC";
         $data = $this->database->select($query);
         if ($data) {
             return $data->fetch_all(MYSQLI_ASSOC);
         } else {
-            return array();
+            return $data;
         }
     }
 
-    public function getCategoryName($id)
+    public function getById($id)
     {
-        $query = "SELECT * FROM category WHERE category_id=$id";
+        $query = "SELECT * FROM tour WHERE category_id=$id";
         $data = $this->database->select($query);
-        return $data->fetch_all(MYSQLI_ASSOC)[0]['category_name'];
+        return $data->fetch_all(MYSQLI_ASSOC)[0];
     }
+
 }

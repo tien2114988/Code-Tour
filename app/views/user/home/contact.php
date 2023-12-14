@@ -1,10 +1,16 @@
-<div class="introduce bg-secondary px-5 py-1">
-    <h4 class="p-0 m-0 text-2xl">
-        <a href="" class="text-white">Trang chủ</a>
-        <span><i class="bi bi-caret-right-fill"></i></span>
-        <a href="" class="text-white">Về chúng tôi</a>
-    </h4>
-</div>
+<nav aria-label="breadcrumb">
+    <div class="bg-body-secondary">
+        <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
+        <li class="breadcrumb-item">
+          <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
+          href="<?php echo $path ?>user/home/homepage">Trang chủ</a></li>
+        <li class="breadcrumb-item active">
+          Liên hệ
+          </li>
+      </ol>
+    </div>
+    </nav>
+
 <div class="m-4">
     <div class="container p-4 d-flex justify-content-between">
         <div class="left__contact p-4">
@@ -12,8 +18,8 @@
                 <h2 class="title-head mb-4">Thông tin liên hệ</h2>
                 <div class="main-contact">
                     <p>
-                        <span style="line-height:2.0;">Điện thoại :&nbsp;0938 179 170<br>
-                            Hotline :&nbsp;0938 179 170 - 0938 003 667</span>
+                        <span style="line-height:2.0;">Điện thoại : <?php echo $data['general']['phone_number'] ?><br>
+                            Hotline : <?php echo $data['general']['hotline'] ?></span>
                     </p>
                 </div>
             </div>
@@ -50,7 +56,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
 </div>
