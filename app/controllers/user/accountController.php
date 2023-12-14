@@ -43,6 +43,7 @@ class accountController extends Controller
 
         $this->viewUser('layout', ['page' => 'account/index', 'user' => $this->user, 'general' => $this->general, 'category' => $this->category]);
     }
+
     public function manage()
     {
 
@@ -137,6 +138,12 @@ class accountController extends Controller
         }
     }
 
+    private function format_price($booking)
+    {
+        $booking['total_money'] = number_format($booking['total_money'], 0, ',', '.');
+        return $booking;
+    }
+
     public function logic()
     {
         if (isset($_SESSION['user-id'])) {
@@ -146,7 +153,7 @@ class accountController extends Controller
             $booking_id = $_POST['orderid'];
         }
         // echo $user_id;
-        $this->booking = $this->bookingModel->getAllBookingByBId($user_id, $booking_id);
+        $this->booking = $this->format_price($this->bookingModel->getAllBookingByBId($user_id, $booking_id));
         //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
         $this->viewUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking, 'general' => $this->general]);
     }
