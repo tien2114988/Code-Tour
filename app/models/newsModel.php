@@ -31,6 +31,13 @@ class NewsModel
         return $data->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    public function getTwo(){
+        $query = "SELECT * FROM news ORDER BY RAND () LIMIT 2;";
+        $data = $this->database->select($query);
+        return $data->fetch_all(MYSQLI_ASSOC);
+
+    }
+
     public function getRow($search = '')
     {
         if ($search != '') {

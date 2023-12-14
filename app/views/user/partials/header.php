@@ -21,7 +21,7 @@ if (isset($_SESSION['user-id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo $path ?>/css/page.css">
-  <!-- <link rel="stylesheet" href="<?php echo $path ?>/css/style.css"> -->
+  <link rel="stylesheet" href="<?php echo $path ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo $path ?>/css/user.css">
 
 </head>
@@ -82,7 +82,7 @@ if (isset($user_id)) {
                   <li><a href="<?php echo $path ?>user/account/">Thông tin tài khoản</a></li>
                   <li><a href="<?php echo $path ?>user/account/changepass">Đổi mật khẩu</a></li>
                   <li><a href="<?php echo $path ?>user/account/manage">Quản lý đặt tour</a></li>
-                  <li><a href="<?php echo $path ?>user/account/">Đăng xuất</a>
+                  <li><a href="<?php echo $path ?>user/account/logout">Đăng xuất</a>
                   </li>
                 </ul>
               </div>

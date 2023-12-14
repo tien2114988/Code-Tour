@@ -33,7 +33,7 @@ p {
   margin: 0;
 }
 /* form */
-.form-field {
+.form-field1 {
   display: block;
   width: 100%;
   padding: 8px 16px;
@@ -48,40 +48,40 @@ p {
   background: var(--input-background);
   transition: border 0.3s ease;
 }
-.form-field::placeholder {
+.form-field1::placeholder {
   color: var(--input-placeholder);
 }
-.form-field:focus {
+.form-field1:focus {
   outline: none;
   border-color: var(--input-border-focus);
 }
-.form-group {
+.form-group1 {
   position: relative;
   display: flex;
   width: 100%;
 }
-.form-group > span,
-.form-group .form-field {
+.form-group1 > span,
+.form-group1 .form-field1 {
   white-space: nowrap;
   display: block;
 }
-.form-group > span:not(:first-child):not(:last-child),
-.form-group .form-field:not(:first-child):not(:last-child) {
+.form-group1 > span:not(:first-child):not(:last-child),
+.form-group1 .form-field1:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
-.form-group > span:first-child,
-.form-group .form-field:first-child {
+.form-group1 > span:first-child,
+.form-group1 .form-field1:first-child {
   border-radius: 6px 0 0 6px;
 }
-.form-group > span:last-child,
-.form-group .form-field:last-child {
+.form-group1 > span:last-child,
+.form-group1 .form-field1:last-child {
   border-radius: 0 6px 6px 0;
 }
-.form-group > span:not(:first-child),
-.form-group .form-field:not(:first-child) {
+.form-group1 > span:not(:first-child),
+.form-group1 .form-field1:not(:first-child) {
   margin-left: -1px;
 }
-.form-group .form-field {
+.form-group1 .form-field1 {
   position: relative;
   z-index: 1;
   flex: 1 1 auto;
@@ -89,7 +89,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
-.form-group > span {
+.form-group1 > span {
   text-align: center;
   padding: 8px 12px;
   font-size: 14px;
@@ -99,8 +99,11 @@ p {
   border: 1px solid var(--group-border);
   transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
-.form-group:focus-within > span {
+.form-group1:focus-within > span {
   color: var(--group-color-focus);
   background: var(--group-background-focus);
   border-color: var(--group-border-focus);
+}
+.form-group1:hover {
+  cursor: pointer;
 }
