@@ -86,7 +86,7 @@
             </select>
         </div>
         <div class="mb-5 flex w-full items-baseline justify-between my-4">
-            <label for="danh-muc" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Số ngày</label>
+            <label for="danh-muc" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Danh mục</label>
             <select id="danh-muc" name="danh-muc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                 <?php
                 foreach ($data['category'] as $category) {
@@ -114,7 +114,7 @@
 
         <div class="mb-5 flex w-full items-baseline justify-between my-4">
             <label for="day" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Ngày</label>
-            <input type="text" name="day" id="day" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="1" disabled required>
+            <input type="text" name="day" id="day" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="1" required>
         </div>
 
         <div class="mb-5 flex w-full items-baseline justify-between my-4">

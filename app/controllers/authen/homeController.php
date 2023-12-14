@@ -1,4 +1,3 @@
-
 <?php
 
 class HomeController extends Controller
@@ -18,7 +17,6 @@ class HomeController extends Controller
             $username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
             $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
 
             $error = "";
 
@@ -51,8 +49,8 @@ class HomeController extends Controller
     public function signup()
     {
         // use to login
-        // $this->viewAuthen('signup', ['page' => 'login']);
-        echo "login\n";
+         $this->viewAuthen('signup', ['page' => 'login']);
+        //echo "login\n";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -81,8 +79,7 @@ class HomeController extends Controller
                         if ($user_record['role'] == 'A') {
                             $_SESSION['user_is_admin'] = true;
                             $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
-
-                            header('Location:' . $path.'admin/users');
+                            header('Location: ' . "$path" . 'admin/users');
                             return;
                         }
                     } else {
@@ -94,16 +91,17 @@ class HomeController extends Controller
             }
             if ($error) { // Có lỗi xảy ra
                 // $_SESSION['signup-data'] = $_POST;
-                echo $error;
+                // echo $error;
                 echo '<script type="text/javascript">toastr.error("' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '")</script>';
-                header('Location:' . '');
+                $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+                // header('Location:' . $path  . 'authen/home/login');
                 die();
             } else {
                 echo "Thanh cong";
                 // echo '<script type="text/javascript">toastr.success("Bạn đã đăng nhập thành công")</script>';
                 $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 
-                header('Location:' . $path. 'user/home/homepage');
+                header('Location:' . $path . 'user/home/homepage');
                 die();
             }
         }
