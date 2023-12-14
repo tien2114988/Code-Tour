@@ -46,7 +46,11 @@
                     </div>
                     <div class="row">
                         <div class="col">
+<<<<<<< HEAD
+                            <textarea name="description" placeholder="Mô tả" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+=======
                             <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required placeholder="Mô tả"></textarea>
+>>>>>>> 543507854785a6186014509ebc72aeb6a65e8362
                         </div>
                     </div>
                     <div class="row">

@@ -49,8 +49,8 @@ class HomeController extends Controller
     public function signup()
     {
         // use to login
-        // $this->viewAuthen('signup', ['page' => 'login']);
-        echo "login\n";
+         $this->viewAuthen('signup', ['page' => 'login']);
+        //echo "login\n";
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -88,20 +88,20 @@ class HomeController extends Controller
                 } else {
                     $error = "Tài khoản hoặc email không tồn tại";
                 }
-
             }
             if ($error) { // Có lỗi xảy ra
                 // $_SESSION['signup-data'] = $_POST;
-                echo $error;
+                // echo $error;
                 echo '<script type="text/javascript">toastr.error("' . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . '")</script>';
-                header('Location:' . '');
+                $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+                // header('Location:' . $path  . 'authen/home/login');
                 die();
             } else {
                 echo "Thanh cong";
                 // echo '<script type="text/javascript">toastr.success("Bạn đã đăng nhập thành công")</script>';
                 $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 
-                header('Location:' . $path);
+                header('Location:' . $path . 'user/home/homepage');
                 die();
             }
         }
