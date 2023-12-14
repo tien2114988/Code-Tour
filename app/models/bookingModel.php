@@ -8,23 +8,57 @@ class BookingModel
         $this->database = new Database();
     }
 
-    // public function getAll($tour_id)
-    // {
-    //     $query = "SELECT * FROM comment WHERE tour_id=$tour_id ORDER BY time DESC";
-    //     $data = $this->database->select($query);
-    //     if ($data) {
-    //         return $data->fetch_all(MYSQLI_ASSOC);
-    //     } else {
-    //         return $data;
-    //     }
-    // }
+    public function getAllBookingData()
+    {
+        $query = "SELECT booking_id, fullname, tour_name, phone_number, status
+        FROM tour T JOIN booking B ON T.tour_id = B.tour_id";
+        $query = $this->database->select($query);
+        if ($query) {
+            $result = [];
+            while ($row = mysqli_fetch_assoc($query)) {
+                array_push($result, $row);
+            }
+            return json_encode($result, JSON_UNESCAPED_UNICODE);
+        } else {
+            return false;
+        }
+    }
 
-    // public function getById($id)
-    // {
-    //     $query = "SELECT * FROM comment WHERE comment_id=$id";
-    //     $data = $this->database->select($query);
-    //     return $data->fetch_all(MYSQLI_ASSOC)[0];
-    // }
+    public function getBookingData($booking_id)
+    {
+        $query = "SELECT *
+        FROM tour T JOIN booking B ON T.tour_id = B.tour_id
+        WHERE booking_id = '$booking_id'";
+        $query = $this->database->select($query);
+        if ($query) {
+            $result = mysqli_fetch_assoc($query);
+            return json_encode($result, JSON_UNESCAPED_UNICODE);
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteBooking($booking_id)
+    {
+        $query = "DELETE FROM booking WHERE booking_id = $booking_id";
+        $query = $this->database->delete($query);
+        if ($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateBookingStatus($booking_id, $status)
+    {
+        $query = "UPDATE booking SET status = '$status' WHERE booking_id = '$booking_id'";
+        $query = $this->database->update($query);
+        if ($query) {
+            return $status;
+        } else {
+            return false;
+        }
+    }
     public function getAllBookingById($user_id)
     {
         $sql = "select distinct booking_id, fullname, email, address, phone_number, total_money,
@@ -61,7 +95,7 @@ class BookingModel
         } else {
             $query = "INSERT INTO `booking`( `adult_count`, `child_count`, `depart_date`, `total_money`, `fullname`, `address`, `phone_number`, `email`, `status`, `user_id`, `tour_id`,`created_datetime`) VALUES ('$adult_count','$child_count','$depart_date','$total_money','$fullname','$address','$phone_number','$email','0',null,'$tour_id','$created_datetime')";
         }
-        
+
         return $this->database->insert($query);
     }
 }

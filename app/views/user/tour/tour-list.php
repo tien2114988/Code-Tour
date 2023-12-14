@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-    <div class="bg-body-secondary">
+    <div class="bg-body-secondary hide">
         <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
         <li class="breadcrumb-item">
           <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
@@ -21,7 +21,7 @@
 
 
 
-            <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 g-4 mt-5">
               <?php if ($data['tour']) {
     foreach ($data['tour'] as $tour) {?>
                 <div class="item-list__card-link px-3">

@@ -1,8 +1,16 @@
 var adult_count = document.getElementById("adult_count");
 var child_count = document.getElementById("child_count");
 
-var adult_price = document.getElementById("adult_price").getAttribute("value");
-var child_price = document.getElementById("child_price").getAttribute("value");
+if (document.getElementById("adult_price")) {
+  var adult_price = document
+    .getElementById("adult_price")
+    .getAttribute("value");
+}
+if (document.getElementById("child_price")) {
+  var child_price = document
+    .getElementById("child_price")
+    .getAttribute("value");
+}
 
 var total_price = document.getElementById("total_price");
 

@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-    <div class="bg-body-secondary">
+    <div class="bg-body-secondary hide">
         <ol class="mx-auto w-75 breadcrumb py-2 fs-6">
         <li class="breadcrumb-item">
           <a class="text-black link-underline link-underline-opacity-0 breadcrumb__item"
@@ -63,15 +63,15 @@
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                 <h4 class="steelblue pt-3">Lịch trình tour</h4>
                 <div class="detail-item">
-                  <div class="d-flex">
-                    <div class="col w-50">
+                  <div class="d-lg-flex">
+                    <div class="col-lg-6">
                       <img class='m-3 w-95' src="<?php echo $data['tour']['map'] ?>" alt="">
                     </div>
-                    <div class="col w-50 m-3">
+                    <div class="col-lg-6 m-3">
                       <?php foreach ($data['schedule'] as $schedule) {?>
                       <div class="">
-                        <h4>Ngày <?php echo $schedule['day'] ?> : <span class="ps-3 steelblue"><i class="bi bi-crosshair"></i> <?php echo $schedule['location'] ?></span> </h4>
-                        <p class="ps-5"><?php echo $schedule['description'] ?></p>
+                        <h4>Ngày <?php echo $schedule['day'] ?> : <span class="ps-3 steelblue fs-5"><i class="bi bi-crosshair"></i> <?php echo $schedule['location'] ?></span> </h4>
+                        <p class="ps-lg-5"><?php echo $schedule['description'] ?></p>
                       </div>
                       <?php }?>
                     </div>
@@ -85,7 +85,7 @@
 
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                 <h4 class="steelblue pt-3">Tổng quan về tour</h4>
-                <p class="px-5"><?php echo $data['tour']['description'] ?></p>
+                <p class="px-md-5"><?php echo $data['tour']['description'] ?></p>
                 <div class="">
                   <p class="fw-semibold m-0">Tour bao gồm : </p>
                   <p class="ps-3"><?php echo $data['tour']['tour_include'] ?></p>
@@ -107,10 +107,10 @@
 
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                 <h4 class="steelblue pt-3">Hình ảnh về tour</h4>
-                <div class="row row-cols-1 row-cols-md-4 g-4 mt-5">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-5">
                 <?php if ($data['imgs']) {
     foreach ($data['imgs'] as $img) {?>
-                    <img class="w-25" src="<?php echo $img['img'] ?>" alt="">
+                    <img class="" src="<?php echo $img['img'] ?>" alt="">
                   <?php }
 } else {?>
                   <div>Chưa có hình ảnh về tour</div>
@@ -127,18 +127,18 @@
             <div class="bg-whitesmoke rounded-1 py-3 px-2 mt-5">
               <h4 class="steelblue">Bình luận/Đánh giá về tour</h4>
               <form class="mb-5" action="" method="post">
-                <div class="d-flex form-row">
-                  <div class="form-group col-md-4 p-2">
+                <div class="d-lg-flex form-lg-row">
+                  <div class="form-group col-lg-4 p-2">
                     <label class="fw-semibold" for="inputName">Họ tên</label>
                     <input type="text" class="form-control" name="fullname" id="name" placeholder="Nhập tên">
                     <p class="text-danger">* <?php echo $data['fullname_err'] ?></p>
                   </div>
-                  <div class="form-group col-md-4 p-2">
+                  <div class="form-group col-lg-4 p-2">
                     <label class="fw-semibold" for="inputEmail">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
                     <p class="text-danger">* <?php echo $data['email_err'] ?></p>
                   </div>
-                  <div class="form-group col-md-4 p-2">
+                  <div class="form-group col-lg-4 p-2">
                     <label class="fw-semibold" for="inputPhone">Số Điện Thoại</label>
                     <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" name="phone_number">
                     <p class="text-danger">* <?php echo $data['phone_number_err'] ?></p>

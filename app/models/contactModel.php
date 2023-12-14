@@ -1,4 +1,5 @@
 <?php
+
 class ContactModel
 {
     private $database;
@@ -7,6 +8,14 @@ class ContactModel
     {
         $this->database = new Database();
     }
+    public function getAll()
+    {
+        $query = "SELECT * FROM contact";
+        $data = $this->database->select($query);
+        return $data->fetch_all(MYSQLI_ASSOC);
+    }
+
+    
 
     public function insert($name,$address,$phone,$email,$description)
     {

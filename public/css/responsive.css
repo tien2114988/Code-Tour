@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
-    /* body{
-        background-color: orange;
+    /* .hide{
+        display:none;
     } */
     .slide__information h5{
         font-size: 2.5rem;
@@ -212,9 +212,9 @@
   }
 
 @media (min-width: 768px) { 
-    /* body{
-        background-color: blue;
-    } */
+    /* .hide {
+            display: none;
+        } */
     .feature__img{
         flex-wrap: nowrap !important;
     }
@@ -280,8 +280,8 @@
     }
  }
 @media (min-width: 1200px) { 
-    /* body{
-        background-color: green;
+    /* .hide{
+        display:block;
     } */
     /*  */
     .container__item{

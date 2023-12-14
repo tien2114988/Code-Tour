@@ -51,6 +51,7 @@ class NewsController extends Controller
     public function news_detail($id)
     {
         $news = $this->newsModel->getById($id);
-        $this->viewUser('layout', ['page' => 'news/news-detail', 'category' => $this->category, 'news' => $news, 'general' => $this->general]);
+        $tour = $this->newsModel->getTour($id);
+        $this->viewUser('layout', ['page' => 'news/news-detail', 'category' => $this->category, 'news' => $news, 'general' => $this->general, 'tour' => $tour]);
     }
 }

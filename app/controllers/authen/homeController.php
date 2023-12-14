@@ -82,7 +82,7 @@ class HomeController extends Controller
                             $_SESSION['user_is_admin'] = true;
                             $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 
-                            header('Location:' . $path);
+                            header('Location:' . $path.'admin/users');
                             return;
                         }
                     } else {
@@ -103,7 +103,7 @@ class HomeController extends Controller
                 // echo '<script type="text/javascript">toastr.success("Bạn đã đăng nhập thành công")</script>';
                 $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 
-                header('Location:' . $path);
+                header('Location:' . $path. 'user/home/homepage');
                 die();
             }
         }
