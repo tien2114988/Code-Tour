@@ -156,7 +156,7 @@
                         <label for="mo-ta-lich-trinh" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Mô tả lịch trình</label>
                         <textarea type="text" name="mo-ta-lich-trinh" id="mo-ta-lich-trinh" rows="10" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"> <?php echo $value['description'] ?> </textarea>
                     </div>
-                    <a href="<?php echo $path ?>admin/tours/deleteSchedule/<?php echo $value['tour_id'] . '/' . $value['schedule_id'] . '/' . $value['day']; ?>" class="mx-2 px-4 py-2 border border-red-400 text-red-400 rounded-lg hover:scale-105 hover:text-white hover:bg-red-400 hover:font-semibold ease-out duration-100 divide-solid <?php if ($key !== array_key_last($data['tour_info']['schedule']) || $key===array_key_first($data['tour_info']['schedule'])) echo "pointer-events-none cursor-default"; ?>">Xoá lịch trình</a>
+                    <a href="<?php echo $path ?>admin/tours/deleteSchedule/<?php echo $value['tour_id'] . '/' . $value['schedule_id'] . '/' . $value['day']; ?>" class="mx-2 px-4 py-2 border border-red-400 text-red-400 rounded-lg hover:scale-105 hover:text-white hover:bg-red-400 hover:font-semibold ease-out duration-100 divide-solid <?php if ($key !== array_key_last($data['tour_info']['schedule'])) echo "pointer-events-none cursor-default"; ?>">Xoá lịch trình</a>
                     <hr class="mt-3">
                 </div>
             <?php } ?>
@@ -164,8 +164,6 @@
     </div>
 </div>
 
-
-<!-- </form> -->
 
 <script>
     function addTour(tour_id) {
@@ -187,7 +185,7 @@
             <label for="mo-ta-lich-trinh" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Mô tả lịch trình</label>
             <textarea type="text" name="mo-ta-lich-trinh" id="mo-ta-lich-trinh" rows="10" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" required>hi</textarea>
         </div>
-        <!-- <a href="<?php echo $path ?>admin/tours/addSchedule/<?php echo $value['tour_id'] . '/' . $value['schedule_id'] . '/' . $value['day'] . '/' . $value['location'] . '/' . $value['description']; ?>" class="mx-2 px-4 py-2 border border-blue-400 text-blue-400 rounded-lg hover:scale-105 hover:text-white hover:bg-blue-400 hover:font-semibold ease-out duration-100 divide-solid">Thêm lịch trình</a> -->
+        
         <button class="mx-2 px-4 py-2 border border-blue-400 text-blue-400 rounded-lg hover:scale-105 hover:text-white hover:bg-blue-400 hover:font-semibold ease-out duration-100" type="submit">Thêm lịch trình</button> 
         <hr class="mt-2">`
         list.appendChild(newNode);
