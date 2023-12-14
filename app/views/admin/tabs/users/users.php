@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($data['users'] as $user) { ?>
+            <?php if ($data['users']) foreach ($data['users'] as $user) { ?>
                 <tr class="bg-white border-b hover:bg-gray-50">
                     <th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap">
                         <div class="flex items-center">

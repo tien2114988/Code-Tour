@@ -1,4 +1,3 @@
-<?php print_r($data['bookings']); ?>
 <?php const status = array(
     '0' => 'Chưa xác nhận',
     '1' => 'Đã xác nhận',
