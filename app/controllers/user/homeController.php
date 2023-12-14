@@ -86,7 +86,6 @@ class HomeController extends Controller
 
         $this->viewUser('layout', ['page' => 'home/news', 'category' => $this->category]);
     }
-
     public function photography()
     {
         $all_img = $this->imgModel->getAll();
