@@ -23,6 +23,7 @@ if (isset($_SESSION['user-id'])) {
   <link rel="stylesheet" href="<?php echo $path ?>/css/page.css">
   <link rel="stylesheet" href="<?php echo $path ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo $path ?>/css/user.css">
+  <link rel="stylesheet" href="<?php echo $path ?>/css/responsive.css">
 
 </head>
 
