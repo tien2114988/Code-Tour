@@ -1,12 +1,13 @@
 <?php
 
-class ContactModel {
+class ContactModel
+{
     private $database;
+
     public function __construct()
     {
         $this->database = new Database();
     }
-
     public function getAll()
     {
         $query = "SELECT * FROM contact";
@@ -16,3 +17,4 @@ class ContactModel {
 
     
 }
+
