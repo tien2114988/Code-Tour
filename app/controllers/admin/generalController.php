@@ -15,12 +15,8 @@ class GeneralController extends Controller
         $this->viewAdmin('layout', ['page' => 'tabs/contact/contact', 'contact' => $this->contactData]);
     }
 
-    public function viewSuccess() {
-        $this->viewAdmin('layout', ['page' => 'tabs/contact/success']);
-    }
-
-    public function viewError() {
-        $this->viewAdmin('layout', ['page' => 'tabs/contact/error']);
+    public function viewResult($result) {
+        $this->viewAdmin('layout', ['page' => 'tabs/contact/result', 'result' => $result]);
     }
 
     public function showContact()
@@ -43,11 +39,7 @@ class GeneralController extends Controller
             // 2. Update -> DB
             $result = $this->contactModel->updateContact($address, $phone_number, $hotline, $email, $transfer_name, $account_number, $bank_name);
             // 3. Show notification
-            if ($result) {
-                $this->viewSuccess();
-            } else {
-                $this->viewError();
-            }
+            $this->viewResult($result);
         }
     }
 }
