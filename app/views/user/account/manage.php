@@ -46,46 +46,54 @@
                         </thead>
                         <tbody>
                             <?php
-                            while ($row = mysqli_fetch_assoc($data['booking'])) {
-                                // var_dump($row);
+                            if ($data['booking']) {
+                                while ($row = mysqli_fetch_assoc($data['booking'])) {
+
+
+
+                                    // var_dump($row);
 
                             ?>
-                                <tr>
-                                    <td><?= $row['tour_name'] ?></td>
-                                    <td><?= $row['created_datetime'] ?></td>
-                                    <td><?= $row['depart_date'] ?></td>
-                                    <?php
-                                    if ($row['status'] == 0) :
-                                    ?>
-                                        <td class="text-warning">
-                                            Đang xử lý
+                                    <tr>
+                                        <td><?= $row['tour_name'] ?></td>
+                                        <td><?= $row['created_datetime'] ?></td>
+                                        <td><?= $row['depart_date'] ?></td>
+                                        <?php
+                                        if ($row['status'] == 0) :
+                                        ?>
+                                            <td class="text-warning">
+                                                Đang xử lý
+                                            </td>
+                                        <?php elseif ($row['status'] == 1) : ?>
+                                            <td class="text-primary">
+                                                Đã xác nhận
+                                            </td>
+                                        <?php elseif ($row['status'] == 2) : ?>
+                                            <td class="text-success">
+                                                Đã hoàn thành
+                                            </td>
+                                        <?php elseif ($row['status'] == 3) : ?>
+                                            <td class="text-danger">
+                                                Đã hủy
+                                            </td>
+                                        <?php endif ?>
+                                        <td><?= $row['total_money'] ?></td>
+                                        <td class="d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" data-order-id="<?= $row['booking_id'] ?>">
+                                                XEM
+                                            </button>
                                         </td>
-                                    <?php elseif ($row['status'] == 1) : ?>
-                                        <td class="text-primary">
-                                            Đã xác nhận
-                                        </td>
-                                    <?php elseif ($row['status'] == 2) : ?>
-                                        <td class="text-success">
-                                            Đã hoàn thành
-                                        </td>
-                                    <?php elseif ($row['status'] == 3) : ?>
-                                        <td class="text-danger">
-                                            Đã hủy
-                                        </td>
-                                    <?php endif ?>
-                                    <td><?= $row['total_money'] ?></td>
-                                    <td class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-success w-100 detail-order" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                                        data-order-id="<?= $row['booking_id']?>">
-                                            XEM
-                                        </button>
-                                    </td>
-                                </tr>
+                                    </tr>
                             <?php
+                                }
                             } ?>
-
                         </tbody>
                     </table>
+                    <?php
+                    if (!$data['booking']) {
+                    ?>
+                        <p class="text-2xl text-center fw-bold"> Bạn chưa đặt tour nào cả</p>
+                    <?php } ?>
                 </div>
 
 
@@ -93,14 +101,9 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog d-flex align-items-center justify-content-center" id="modal-dialog-user">
                         <div class="modal-content" id="modal-user">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    Booking Tour
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- <div class="bill-title d-flex justify-content-between align-items-center m-2">
+
+
+                            <!-- <div class="bill-title d-flex justify-content-between align-items-center m-2">
                                     <div class="user__infor-detail w-100 d-flex gap-2 flex-column">
                                         <div class="title">
                                             <p>Họ và tên:</p>
@@ -165,13 +168,13 @@
                                         </div>
                                     </div>
                                 </div> -->
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script>
     $(document).ready(function() {

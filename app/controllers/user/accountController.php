@@ -8,8 +8,6 @@ class accountController extends Controller
     private $user;
     private $userModel;
 
-    private $address;
-    private $addressModel;
 
     private $booking;
     private $bookingModel;
@@ -19,7 +17,6 @@ class accountController extends Controller
         $this->categoryModel = $this->model("categoryModel");
         $this->category = $this->categoryModel->getAll();
         $this->userModel = $this->model("userModel");
-        $this->addressModel = $this->model("addressModel");
         $this->bookingModel = $this->model("bookingModel");
     }
 
@@ -30,7 +27,6 @@ class accountController extends Controller
             $user_id = $_SESSION['user-id'];
         }
         $this->user = $this->userModel->getById($user_id);
-        $this->address = $this->addressModel->getById($user_id);
         /*
         if ($this->user) {
             var_dump($this->user);
@@ -39,12 +35,9 @@ class accountController extends Controller
             var_dump($this->address);
         }
         */
-        if ($this->address) {
-            $this->address = $this->address->fetch_all(MYSQLI_ASSOC)[0];
-        }
 
 
-        $this->viewUser('layout', ['page' => 'account/index', 'user' => $this->user, 'address' => $this->address]);
+        $this->viewUser('layout', ['page' => 'account/index', 'user' => $this->user]);
     }
     public function manage()
     {
@@ -64,32 +57,20 @@ class accountController extends Controller
             $user_id = $_SESSION['user-id'];
         }
         $this->user = $this->userModel->getById($user_id);
-        $this->address = $this->addressModel->getById($user_id);
-        if ($this->address) {
-            $this->address = $this->address->fetch_all(MYSQLI_ASSOC)[0];
-        }
+        
         /*
         var_dump($this->address);
         var_dump($this->user);
         */
-        $this->viewUser('layout', ['page' => 'account/update', 'user' => $this->user, 'address' => $this->address]);
+        $this->viewUser('layout', ['page' => 'account/update', 'user' => $this->user]);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fullname = $_POST['fullname'];
-
             $detail = $_POST['detail'];
             $phone = $_POST['phone'];
-
-            if ($this->address) {
-                echo "123";
-                exit();
-                $this->userModel->update($fullname, $phone, $user_id);
-                $this->addressModel->update($detail, $user_id);
-            } else {
-
-                $this->userModel->update($fullname, $phone, $user_id);
-                $this->addressModel->insert($detail, $user_id);
-            }
+            $this->userModel->update($fullname, $phone,$user_id, $detail);
+            
+            
             echo '<script type="text/javascript">toastr.success("Bạn đã cập nhập thành công")</script>';
         }
 
@@ -165,6 +146,6 @@ class accountController extends Controller
         // echo $user_id;
         $this->booking = $this->bookingModel->getAllBookingByBId($user_id,$booking_id);
         //  var_dump($this->booking->fetch_all(MYSQLI_ASSOC));
-        $this->viewUser('layout', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking]);
+        $this->viewUser('account/logic', ['page' => 'account/logic', 'category' => $this->category, 'booking' => $this->booking]);
     }
 }

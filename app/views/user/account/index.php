@@ -22,7 +22,6 @@
                         <i class="bi bi-map"></i>
                         <a href="<?php echo $path ?>user/account/changepass">Đổi mật khẩu</a>
                     </li>
-
                     <li>
                         <i class="bi bi-box-arrow-in-right"></i>
                         <a href="<?php echo $path ?>user/account/logout">Đăng xuất</a>
@@ -51,8 +50,8 @@
                     </div>
                     <div class="title">
                         <p>Địa chỉ:</p>
-                        <?php if (isset($data['address']['address'])) : ?>
-                            <p><?= $data['address']['address'] ?></p>
+                        <?php if ($data['user']['address']) : ?>
+                            <p><?= $data['user']['address'] ?></p>
                         <?php else : ?>
                             <p class='text-danger'>Bạn cần cập nhật Địa chỉ</p>
                         <?php endif ?>

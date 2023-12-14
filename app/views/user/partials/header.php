@@ -17,6 +17,9 @@ if (isset($_SESSION['user-id'])) {
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo $path ?>css/user.css">
   <link rel="stylesheet" href="<?php echo $path ?>css/page.css">
   <link rel="stylesheet" href="<?php echo $path ?>css/style.css">
@@ -60,7 +63,7 @@ if (isset($_SESSION['user-id'])) {
             <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/home/photography">Hình ảnh</a>
           </li>
           <li class="nav-item mx-1">
-            <a class="nav-link active" aria-current="page" href="">Liên hệ</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo $path ?>user/home/contact">Liên hệ</a>
           </li>
           <li class="nav-item dropdown mx-1">
             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
