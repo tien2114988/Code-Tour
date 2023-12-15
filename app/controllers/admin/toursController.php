@@ -12,16 +12,37 @@ class ToursController extends Controller
 
     public function index()
     {
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/tours', 'tour_data' => $this->tourModel->getAll_tri()]);
+        if (isset($_SESSION['user_is_admin'])) {
+
+            $this->viewAdmin('layout', ['page' => 'tabs/tour/tours', 'tour_data' => $this->tourModel->getAll_tri()]);
+        } else {
+            $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+
+            header('Location:' . $path . 'user/home/homepage');
+        }
     }
 
-    public function themTour(){
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category'=> $this->categoryModel->getAll()]);
+    public function themTour()
+    {
+        if (isset($_SESSION['user_is_admin'])) {
+
+            $this->viewAdmin('layout', ['page' => 'tabs/tour/addTour', 'category' => $this->categoryModel->getAll()]);
+        } else {
+            $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+
+            header('Location:' . $path . 'user/home/homepage');
+        }
     }
 
     public function tourDetail($tour_id)
     {
-        $this->viewAdmin('layout', ['page' => 'tabs/tour/tourDetail', 'tour_id' => $tour_id, "tour_info" => $this->tourModel->getById_tri($tour_id)]);
+        if (isset($_SESSION['user_is_admin'])) {
+            $this->viewAdmin('layout', ['page' => 'tabs/tour/tourDetail', 'tour_id' => $tour_id, "tour_info" => $this->tourModel->getById_tri($tour_id)]);
+        } else {
+            $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+
+            header('Location:' . $path . 'user/home/homepage');
+        }
     }
 
     public function deleteSchedule($tour_id, $schedule_id, $day)
@@ -71,16 +92,17 @@ class ToursController extends Controller
         exit();
     }
 
-    public function deleteTour($tour_id){
+    public function deleteTour($tour_id)
+    {
         $this->tourModel->deleteTour($tour_id);
         global $path;
         header("Location: {$path}admin/tours");
     }
-    public function addTour(){
+    public function addTour()
+    {
         $this->tourModel->addTour($_POST);
         global $path;
 
         header("Location: {$path}admin/tours");
     }
-
 }

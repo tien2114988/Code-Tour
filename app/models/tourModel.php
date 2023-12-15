@@ -22,7 +22,6 @@ class TourModel
         $query_schedule = sprintf("SELECT * FROM tour_schedule WHERE tour_id=%s ORDER BY `day`;", $tour_id);
         $query_image = sprintf("SELECT * FROM tour_image WHERE tour_id=%s", $tour_id);
 
-
         $tour = $this->database->select($query_tour);
         $tour = $tour ? $tour->fetch_all(MYSQLI_ASSOC) : array();
         $image = $this->database->select($query_image);
@@ -30,14 +29,13 @@ class TourModel
         $schedule = $this->database->select($query_schedule);
         $schedule = $schedule ? $schedule->fetch_all(MYSQLI_ASSOC) : array();
 
-
         $query_max = "SELECT MAX(day) from tour_schedule WHERE `tour_id`=$tour_id;";
         $max = $this->database->select($query_max)->fetch_all(MYSQLI_ASSOC);
         return array(
             "tour" => $tour,
             "schedule" => $schedule,
             "image" => $image,
-            "maxDay" => $max
+            "maxDay" => $max,
         );
     }
 
@@ -74,7 +72,6 @@ class TourModel
         $danh_gia,
         $hinh_anh
     ) {
-
 
         $query = "UPDATE tour SET `tour_name`='$ten_tour', `adult_price`='$gia_nguoi_lon', `child_price`='$gia_tre_em', `tour_include`='$bao_gom', `tour_exclude`='$khong_bao_gom', `tour_condition`='$dieu_kien_dat_tour', `vehicle`='$phuong_tien', `tour_days`='$so_ngay', `description`='$mo_ta', `tour_condition`='$dieu_kien_huy_tour', `hotel_rate`='$danh_gia' WHERE `tour_id`=$tour_id";
         $result = $this->database->update($query);
@@ -122,9 +119,9 @@ class TourModel
         $result = mysqli_query(Database::$link, $query);
         $tour_id_inserted = mysqli_insert_id(Database::$link);
 
-        $insert_schedule = sprintf("INSERT INTO tour_schedule (`day`, `location`, `description`,`tour_id`) values (%d,'%s','%s',%s)", (int)$body['day'], $body['dia-diem'], $body['mo-ta-lich-trinh'] ,$tour_id_inserted);
+        $insert_schedule = sprintf("INSERT INTO tour_schedule ( `location`, `description`,`tour_id`) values ('%s','%s',%s)", $body['dia-diem'], $body['mo-ta-lich-trinh'], $tour_id_inserted);
         $result2 = $this->database->insert($insert_schedule);
-        $insert_image = sprintf("INSERT INTO tour_image (`img`, `tour_id`) values ('%s',%s)",$body['hinh-anh'] ,$tour_id_inserted);
+        $insert_image = sprintf("INSERT INTO tour_image (`img`, `tour_id`) values ('%s',%s)", $body['hinh-anh'], $tour_id_inserted);
         $result3 = $this->database->insert($insert_image);
 
         return $result && $result2 && $result3;
@@ -172,14 +169,16 @@ class TourModel
             return 0;
         }
     }
-    
-    public function getThree(){
+
+    public function getThree()
+    {
         $sql = "SELECT DISTINCT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 3;";
         $data = $this->database->select($sql);
         // var_dump($data);
         return $data;
     }
-    public function getFive(){
+    public function getFive()
+    {
         $sql = "SELECT DISTINCT * from tour join tour_schedule on tour.tour_id = tour_schedule.tour_id order by rand() limit 5;";
         $data = $this->database->select($sql);
         // var_dump($data);
