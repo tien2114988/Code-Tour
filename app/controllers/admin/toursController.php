@@ -66,7 +66,7 @@ class ToursController extends Controller
             $_POST['so-ngay'],
             $_POST['mo-ta'],
             $_POST['dieu-kien-huy-tour'],
-            $_POST['danh-gia'],
+            (int)$_POST['danh-gia'],
             $_POST['hinh-anh']
         );
         $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
