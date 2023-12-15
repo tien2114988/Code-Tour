@@ -12,17 +12,20 @@ class ContactModel
     {
         $query = "SELECT * FROM contact";
         $data = $this->database->select($query);
-        return $data->fetch_all(MYSQLI_ASSOC);
+        if ($data) {
+            return $data->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return $data;
+        }
+
     }
 
-    
-
-    public function insert($name,$address,$phone,$email,$description)
+    public function insert($name, $address, $phone, $email, $description)
     {
         $query = "INSERT INTO contact (fullname,address,phone_number,email,content) VALUES ('$name','$address','$phone','$email','$description')";
-        
+
         $data = $this->database->insert($query);
-        
+
         return $data;
     }
 }
