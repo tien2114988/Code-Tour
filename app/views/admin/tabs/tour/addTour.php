@@ -8,11 +8,11 @@
         </div>
         <div class="mb-5 flex w-full items-baseline justify-between my-4">
             <label for="gia-nguoi-lon" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Giá người lớn</label>
-            <input type="text" name="gia-nguoi-lon" id="gia-nguoi-lon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <input type="number" name="gia-nguoi-lon" id="gia-nguoi-lon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" min='0' required>
         </div>
         <div class="mb-5 flex w-full items-baseline justify-between my-4">
             <label for="gia-tre-em" class="basis-1/3 block mb-2 text-lg font-medium text-gray-900 flex-shrink-0 mr-4">Giá trẻ em</label>
-            <input type="text" name="gia-tre-em" id="gia-tre-em" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <input type="number" name="gia-tre-em" id="gia-tre-em" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required min='0'>
         </div>
 
         <div class="mb-5 flex w-full items-baseline justify-between my-4">
