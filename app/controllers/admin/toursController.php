@@ -27,7 +27,8 @@ class ToursController extends Controller
     public function deleteSchedule($tour_id, $schedule_id, $day)
     {
         $this->tourModel->deleteSchedule($schedule_id, $day);
-        header("Location: /Code-Tour/public/admin/tours/tourDetail/$tour_id");
+        global $path;
+        header("Location: {$path}admin/tours/tourDetail/$tour_id");
         exit();
     }
 
@@ -48,8 +49,8 @@ class ToursController extends Controller
             $_POST['danh-gia'],
             $_POST['hinh-anh']
         );
-
-        header("Location: /Code-Tour/public/admin/tours/tourDetail/$tour_id");
+        global $path;
+        header("Location: {$path}admin/tours/tourDetail/$tour_id");
 
     }
     public function addSchedulePost()
@@ -61,7 +62,8 @@ class ToursController extends Controller
         // echo $maxDay;
         // if ($_POST['day'] > $maxDay) {
         $this->tourModel->addSchedule($_POST['tour_id'], $_POST['day'], $_POST['dia-diem'], $_POST['mo-ta-lich-trinh']);
-        header("Location: /Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]");
+        global $path;
+        header("Location: {$path}admin/tours/tourDetail/$_POST[tour_id]");
         // } else {
         //     echo "<h1>Số trang nhập không được lớn hơn $maxDay.</h1>";
         //     echo "<a href=" . "/Code-Tour/public/admin/tours/tourDetail/$_POST[tour_id]>Quay về</a>";
@@ -71,11 +73,14 @@ class ToursController extends Controller
 
     public function deleteTour($tour_id){
         $this->tourModel->deleteTour($tour_id);
-        header('Location: /Code-Tour/public/admin/tours');
+        global $path;
+        header("Location: {$path}admin/tours");
     }
     public function addTour(){
         $this->tourModel->addTour($_POST);
-        header('Location: /Code-Tour/public/admin/tours');
+        global $path;
+
+        header("Location: {$path}admin/tours");
     }
 
 }
