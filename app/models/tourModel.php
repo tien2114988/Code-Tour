@@ -76,7 +76,7 @@ class TourModel
     ) {
 
 
-        $query = "UPDATE tour SET `tour_name`='$ten_tour', `adult_price`='$gia_nguoi_lon', `child_price`='$gia_tre_em', `tour_include`='$bao_gom', `tour_exclude`='$khong_bao_gom', `tour_condition`='$dieu_kien_dat_tour', `vehicle`='$phuong_tien', `tour_days`='$so_ngay', `description`='$mo_ta', `tour_condition`='$dieu_kien_huy_tour', `hotel_rate`=$danh_gia WHERE `tour_id`=$tour_id";
+        $query = "UPDATE tour SET `tour_name`='$ten_tour', `adult_price`='$gia_nguoi_lon', `child_price`='$gia_tre_em', `tour_include`='$bao_gom', `tour_exclude`='$khong_bao_gom', `tour_condition`='$dieu_kien_dat_tour', `vehicle`='$phuong_tien', `tour_days`='$so_ngay', `description`='$mo_ta', `tour_condition`='$dieu_kien_huy_tour', `hotel_rate`='$danh_gia' WHERE `tour_id`=$tour_id";
         $result = $this->database->update($query);
         $query_image = "UPDATE tour_image SET `img`='$hinh_anh' WHERE `tour_id`=$tour_id";
         $result_image = $this->database->update($query_image);
