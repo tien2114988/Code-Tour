@@ -85,14 +85,13 @@ class ToursController extends Controller
     public function deleteTour($tour_id)
     {
         $this->tourModel->deleteTour($tour_id);
-        global $path;
-        header("Location: {$path}admin/tours");
+        $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+        header("Location:" . $path ."admin/tours");
     }
     public function addTour()
     {
         $this->tourModel->addTour($_POST);
-        global $path;
-
-        header("Location: {$path}admin/tours");
+        $path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+        header("Location:" . $path. "admin/tours");
     }
 }
