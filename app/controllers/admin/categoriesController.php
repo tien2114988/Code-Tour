@@ -3,11 +3,13 @@ class CategoriesController extends Controller
 {
     private $categoryModel;
     private $categoryData;
+    private $path;
 
     public function __construct()
     {
         $this->categoryModel = $this->model("categoryModel");
         $this->categoryData = json_decode($this->categoryModel->getCategoriesData());
+        $this->path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     }
 
     public function index()
@@ -21,7 +23,8 @@ class CategoriesController extends Controller
         $this->viewAdmin('layout', ['page' => 'tabs/categories/deleteResult', 'result' => $res]);
     }
 
-    public function viewUpdateResult($res) {
+    public function viewUpdateResult($res)
+    {
         $this->viewAdmin('layout', ['page' => 'tabs/categories/updateResult', 'result' => $res]);
     }
 
@@ -34,14 +37,14 @@ class CategoriesController extends Controller
             // 2. Insert -> DB
             $result = $this->categoryModel->addCategory($category_name, $category_img);
             // 3. Show notification
-            header("Location: /Code-Tour/public/admin/categories");
+            header("Location: " . $this->path . "admin/categories");
         }
     }
 
     public function deleteCategory($category_id = -1)
     {
         if ($category_id == -1) {
-            header("Location: /Code-Tour/public/admin/categories");
+            header("Location: " . $this->path . "admin/categories");
         }
         $result = $this->categoryModel->deleteCategory($category_id);
         $this->viewDeleteResult($result);
@@ -50,7 +53,7 @@ class CategoriesController extends Controller
     public function editCategory($category_id = -1)
     {
         if ($category_id == -1) {
-            header("Location: /Code-Tour/public/admin/categories");
+            header("Location: " . $this->path . "admin/categories");
         }
 
         $category = $this->categoryModel->getCategoryInfo($category_id);
@@ -61,7 +64,7 @@ class CategoriesController extends Controller
     public function updateCategory($category_id = -1)
     {
         if ($category_id == -1) {
-            header("Location: /Code-Tour/public/admin/categories");
+            header("Location: " . $this->path . "admin/categories");
         }
         if (isset($_POST["editSubmit"])) {
             // 1. Get input data

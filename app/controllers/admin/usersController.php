@@ -3,11 +3,13 @@ class UsersController extends Controller
 {
     private $userModel;
     private $userData;
+    private $path;
 
     public function __construct()
     {
         $this->userModel = $this->model("userModel");
         $this->userData = json_decode($this->userModel->getAllUsersData());
+        $this->path = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     }
 
     public function index()
@@ -39,7 +41,7 @@ class UsersController extends Controller
 
         if (isset($_SESSION['user_is_admin'])) {
             if ($user_id == -1) {
-                header("Location: /Code-Tour/public/admin/users/");
+                header("Location: " . $this->path . "admin/users/");
             }
             $this->viewResult($this->userModel->deleteUser($user_id));
         } else {
