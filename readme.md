@@ -1,4 +1,4 @@
-# Shoe_Shop_Management_System
+# Travel Service
 ## Introduction
 - The system is built to provide travel services
 - Frontend : HTML, CSS (Bootstrap), JS
